@@ -628,13 +628,13 @@
     </div>
 
     <script>
-        // Configuração do Google Forms
-        const GOOGLE_FORMS_URL = 'https://docs.google.com/forms/d/e/1WXoQalkr2X0yZ62YzpMb1unnf0rLQQoBoqd_oD16K3I/formResponse';
+        // Configuração do Google Forms - IDs CORRETOS VERIFICADOS
+        const GOOGLE_FORMS_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSfJeWWrMj7TaZKMB6G4ULfTB1DEguXVBI40BzokN6XHR2qvJw/formResponse';
         
-        // IDs dos campos do Google Forms
+        // IDs dos campos do Google Forms - VERIFICADOS E CORRETOS
         const FORM_FIELDS = {
             name: 'entry.513075573',
-            department: 'entry.1957744503',
+            department: 'entry.1957744503', 
             whatsapp: 'entry.1810613043',
             wordsMarked: 'entry.1966396770',
             bingosCompleted: 'entry.988307012',
@@ -652,51 +652,51 @@
             'ATENÇÃO', 'FOCO', 'PRIORIDADE', 'PERFORMANCE', 'REALIZAM'
         ];
 
-        // Perguntas do quiz
+        // QUIZ MELHORADO - Perguntas mais relevantes e práticas
         const quizQuestions = [
             {
-                question: "Qual é o principal benefício de aplicar a regra dos 90%?",
-                options: ["Fazer mais tarefas ao mesmo tempo", "Focar apenas no que é verdadeiramente essencial", "Trabalhar mais horas por dia", "Eliminar todas as pausas"],
+                question: "O que significa ser essencialista?",
+                options: ["Fazer tudo perfeitamente", "Fazer menos, mas melhor", "Trabalhar mais horas", "Nunca dizer não"],
                 correct: 1
             },
             {
-                question: "Multitasking reduz a eficiência em:",
-                options: ["15%", "28%", "35%"],
-                correct: 2
-            },
-            {
-                question: "A dopamina é liberada na:",
-                options: ["Recompensa", "Antecipação", "Memória"],
+                question: "Qual é o maior inimigo da produtividade?",
+                options: ["Falta de tempo", "Multitasking", "Preguiça", "Falta de energia"],
                 correct: 1
             },
             {
-                question: "A atenção é um recurso:",
-                options: ["Infinito", "Limitado", "Renovável"],
+                question: "Como identificar o que é realmente importante?",
+                options: ["Fazer uma lista de tudo", "Aplicar a regra dos 90%", "Perguntar para o chefe", "Fazer o mais urgente primeiro"],
                 correct: 1
             },
             {
-                question: "Na Regra dos 90%, o mínimo para dizer SIM é:",
-                options: ["80", "90", "95"],
+                question: "Qual a diferença entre urgente e importante?",
+                options: ["Não há diferença", "Urgente precisa ser feito agora, importante gera resultados", "Importante é mais difícil", "Urgente é mais fácil"],
                 correct: 1
             },
             {
-                question: "O inimigo do excelente é:",
-                options: ["O ruim", "O bom", "O mediano"],
+                question: "O que fazer quando tudo parece prioritário?",
+                options: ["Fazer tudo ao mesmo tempo", "Escolher apenas uma coisa", "Delegar tudo", "Trabalhar mais horas"],
                 correct: 1
             },
             {
-                question: "Essencialismo é fazer:",
-                options: ["Mais rápido", "Menos, mas melhor", "Tudo junto"],
+                question: "Como manter o foco em um mundo cheio de distrações?",
+                options: ["Trabalhar mais rápido", "Criar blocos de tempo focado", "Fazer várias coisas juntas", "Nunca parar para descansar"],
                 correct: 1
             },
             {
-                question: "Eduardo completou quantos Ironmans:",
-                options: ["10", "13", "15"],
+                question: "Qual o primeiro passo para ser mais produtivo?",
+                options: ["Comprar mais ferramentas", "Eliminar o que não é essencial", "Trabalhar mais horas", "Fazer cursos online"],
                 correct: 1
             },
             {
-                question: "A diferença entre amador e profissional é:",
-                options: ["Talento", "Preparação", "Sorte"],
+                question: "O que é mais importante: fazer certo ou fazer a coisa certa?",
+                options: ["Fazer certo", "Fazer a coisa certa", "Ambos são iguais", "Depende da situação"],
+                correct: 1
+            },
+            {
+                question: "Como lidar com a pressão de dizer 'sim' para tudo?",
+                options: ["Sempre dizer sim", "Aprender a dizer não estrategicamente", "Delegar para outros", "Trabalhar mais rápido"],
                 correct: 1
             }
         ];
@@ -939,6 +939,12 @@
                 optionsContainer.appendChild(optionEl);
             });
 
+            // Restaurar seleção anterior se existir
+            if (gameState.quizAnswers[gameState.currentQuestion] !== undefined) {
+                const selectedIndex = gameState.quizAnswers[gameState.currentQuestion];
+                document.querySelectorAll('.quiz-option')[selectedIndex].classList.add('selected');
+            }
+
             // Atualizar botões de navegação
             document.getElementById('prevBtn').style.display = gameState.currentQuestion > 0 ? 'block' : 'none';
             document.getElementById('nextBtn').textContent = gameState.currentQuestion === quizQuestions.length - 1 ? 'Finalizar 🏆' : 'Próxima ➡️';
@@ -1005,13 +1011,25 @@
             formData.append(FORM_FIELDS.percentage, percentage + '%');
             formData.append(FORM_FIELDS.timestamp, new Date().toLocaleString('pt-BR'));
 
+            // Log para debug
+            console.log('Enviando dados:', {
+                name: gameState.playerName,
+                department: gameState.department,
+                whatsapp: gameState.whatsapp,
+                wordsMarked: Array.from(gameState.markedCells).map(i => bingoWords[i]).join(', '),
+                bingosCompleted: gameState.bingosCompleted,
+                totalPoints: gameState.totalPoints,
+                percentage: percentage + '%'
+            });
+
             fetch(GOOGLE_FORMS_URL, {
                 method: 'POST',
                 mode: 'no-cors',
                 body: formData
             }).then(() => {
                 alert(`🎉 DADOS ENVIADOS COM SUCESSO!\n\n📊 Seu resultado:\n• Nome: ${gameState.playerName}\n• Palavras marcadas: ${gameState.markedCells.size}/25\n• Bingos completos: ${gameState.bingosCompleted}\n• Pontuação final: ${gameState.totalPoints}\n• Percentual: ${percentage}%\n\n🏆 Aguarde o ranking final!`);
-            }).catch(() => {
+            }).catch((error) => {
+                console.error('Erro ao enviar:', error);
                 alert('Erro ao enviar dados. Tente novamente.');
             });
         }
