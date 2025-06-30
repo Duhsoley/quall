@@ -103,36 +103,38 @@
 
         .game-container {
             display: none;
-            padding: 20px;
+            padding: 15px;
         }
 
         .player-info {
             background: linear-gradient(135deg, #ffeaa7, #fdcb6e);
-            padding: 15px;
+            padding: 12px;
             border-radius: 15px;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
             border-left: 5px solid #e17055;
         }
 
         .player-info h3 {
             color: #2d3436;
             margin-bottom: 5px;
+            font-size: 1rem;
         }
 
         .player-info p {
             color: #636e72;
             margin: 0;
+            font-size: 0.9rem;
         }
 
         .bingo-header {
             text-align: center;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
         }
 
         .bingo-header h2 {
             color: #ff6b6b;
-            font-size: 1.8rem;
-            margin-bottom: 10px;
+            font-size: 1.5rem;
+            margin-bottom: 8px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -141,9 +143,9 @@
 
         .instructions {
             background: linear-gradient(135deg, #fff7e6, #ffe8cc);
-            padding: 15px;
+            padding: 12px;
             border-radius: 10px;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
             border-left: 4px solid #ff6b6b;
         }
 
@@ -151,14 +153,15 @@
             margin: 0;
             color: #333;
             font-weight: 500;
+            font-size: 0.9rem;
         }
 
         .progress-bar {
             width: 100%;
-            height: 8px;
+            height: 6px;
             background: #e1e8ed;
-            border-radius: 4px;
-            margin-bottom: 20px;
+            border-radius: 3px;
+            margin-bottom: 15px;
             overflow: hidden;
         }
 
@@ -167,32 +170,32 @@
             background: linear-gradient(90deg, #ff6b6b, #ee5a24);
             width: 4%;
             transition: width 0.5s ease;
-            border-radius: 4px;
+            border-radius: 3px;
         }
 
         .bingo-letters {
             display: grid;
             grid-template-columns: repeat(5, 1fr);
-            gap: 8px;
-            margin-bottom: 15px;
+            gap: 6px;
+            margin-bottom: 12px;
         }
 
         .bingo-letter {
             background: linear-gradient(135deg, #ff6b6b, #ee5a24);
             color: white;
-            padding: 12px;
+            padding: 8px;
             text-align: center;
             font-weight: bold;
-            font-size: 1.2rem;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            font-size: 1rem;
+            border-radius: 8px;
+            box-shadow: 0 3px 6px rgba(0,0,0,0.1);
         }
 
         .bingo-grid {
             display: grid;
             grid-template-columns: repeat(5, 1fr);
             gap: 3px;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
             position: relative;
         }
 
@@ -200,16 +203,16 @@
             aspect-ratio: 1;
             background: #f8f9fa;
             border: 2px solid #e1e8ed;
-            border-radius: 8px;
+            border-radius: 6px;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
-            font-size: 0.7rem;
+            font-size: 0.65rem;
             font-weight: 600;
             cursor: pointer;
             transition: all 0.3s ease;
-            padding: 4px;
+            padding: 3px;
             line-height: 1.1;
             position: relative;
             overflow: hidden;
@@ -217,7 +220,7 @@
 
         .bingo-cell:hover {
             transform: scale(1.05);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            box-shadow: 0 3px 8px rgba(0,0,0,0.15);
         }
 
         .bingo-cell.marked {
@@ -237,56 +240,56 @@
         .bingo-cell.free::after {
             content: '⭐';
             position: absolute;
-            top: 2px;
-            right: 2px;
-            font-size: 0.6rem;
+            top: 1px;
+            right: 1px;
+            font-size: 0.5rem;
         }
 
         .stats {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 15px;
-            margin-bottom: 20px;
+            gap: 10px;
+            margin-bottom: 15px;
         }
 
         .stat-card {
             background: linear-gradient(135deg, #6c5ce7, #5f3dc4);
             color: white;
-            padding: 20px;
-            border-radius: 15px;
+            padding: 15px 10px;
+            border-radius: 12px;
             text-align: center;
-            box-shadow: 0 8px 16px rgba(108, 92, 231, 0.3);
+            box-shadow: 0 6px 12px rgba(108, 92, 231, 0.3);
         }
 
         .stat-number {
-            font-size: 2rem;
+            font-size: 1.5rem;
             font-weight: bold;
-            margin-bottom: 5px;
+            margin-bottom: 3px;
         }
 
         .stat-label {
-            font-size: 0.9rem;
+            font-size: 0.8rem;
             opacity: 0.9;
         }
 
         .action-buttons {
             display: grid;
             grid-template-columns: 1fr;
-            gap: 10px;
+            gap: 8px;
         }
 
         .btn {
-            padding: 15px;
+            padding: 12px;
             border: none;
-            border-radius: 10px;
-            font-size: 16px;
+            border-radius: 8px;
+            font-size: 14px;
             font-weight: 600;
             cursor: pointer;
             transition: all 0.3s;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 8px;
+            gap: 6px;
         }
 
         .btn-reset {
@@ -306,7 +309,7 @@
 
         .btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.2);
         }
 
         /* Animações de celebração */
@@ -315,7 +318,7 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            font-size: 3rem;
+            font-size: 2.5rem;
             color: #ffd700;
             animation: starPop 3s ease-out forwards;
             pointer-events: none;
@@ -362,7 +365,7 @@
         }
 
         .celebration-content h1 {
-            font-size: 4rem;
+            font-size: 3rem;
             margin-bottom: 20px;
             background: linear-gradient(45deg, #ff6b6b, #ffd700, #00b894, #6c5ce7);
             background-size: 400% 400%;
@@ -416,7 +419,7 @@
 
         .diagonal-letter {
             position: absolute;
-            font-size: 2rem;
+            font-size: 1.5rem;
             font-weight: bold;
             color: #ff6b6b;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
@@ -431,51 +434,53 @@
         /* Quiz styles */
         .quiz-container {
             display: none;
-            padding: 20px;
+            padding: 15px;
         }
 
         .quiz-header {
             background: linear-gradient(135deg, #6c5ce7, #5f3dc4);
             color: white;
-            padding: 20px;
-            border-radius: 15px;
+            padding: 15px;
+            border-radius: 12px;
             text-align: center;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
         }
 
         .quiz-question {
             background: white;
             border: 2px solid #e1e8ed;
-            border-radius: 15px;
-            padding: 20px;
-            margin-bottom: 20px;
+            border-radius: 12px;
+            padding: 15px;
+            margin-bottom: 15px;
         }
 
         .question-number {
             color: #6c5ce7;
             font-weight: bold;
-            margin-bottom: 15px;
+            margin-bottom: 12px;
+            font-size: 0.9rem;
         }
 
         .question-text {
-            font-size: 1.1rem;
+            font-size: 1rem;
             font-weight: 600;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
             color: #2d3436;
         }
 
         .quiz-options {
             display: grid;
-            gap: 10px;
+            gap: 8px;
         }
 
         .quiz-option {
-            padding: 15px;
+            padding: 12px;
             border: 2px solid #e1e8ed;
-            border-radius: 10px;
+            border-radius: 8px;
             cursor: pointer;
             transition: all 0.3s;
             background: white;
+            font-size: 0.9rem;
         }
 
         .quiz-option:hover {
@@ -492,10 +497,181 @@
         .quiz-navigation {
             display: flex;
             justify-content: space-between;
-            margin-top: 20px;
+            margin-top: 15px;
         }
 
-        /* Responsive */
+        /* Certificado */
+        .certificate-container {
+            display: none;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .certificate {
+            background: linear-gradient(135deg, #1a1a2e, #16213e);
+            border: 3px solid #ff6b6b;
+            border-radius: 20px;
+            padding: 30px;
+            margin: 20px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .certificate::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, #ff6b6b, #00b894, #6c5ce7, #ffd700);
+            border-radius: 20px;
+            z-index: -1;
+            animation: borderGlow 3s ease-in-out infinite;
+        }
+
+        @keyframes borderGlow {
+            0%, 100% { opacity: 0.8; }
+            50% { opacity: 1; }
+        }
+
+        .certificate-title {
+            color: white;
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .certificate-subtitle {
+            color: #ccc;
+            font-size: 1rem;
+            margin-bottom: 15px;
+        }
+
+        .certificate-name {
+            color: #ff6b6b;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin: 20px 0;
+            padding: 10px;
+            border-bottom: 2px solid #ff6b6b;
+            text-transform: uppercase;
+        }
+
+        .certificate-text {
+            color: white;
+            font-size: 1rem;
+            line-height: 1.6;
+            margin: 20px 0;
+        }
+
+        .certificate-date {
+            color: #ccc;
+            font-size: 0.9rem;
+            margin-top: 30px;
+        }
+
+        .cuboo-logo {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #ff6b6b, #6c5ce7);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 0.8rem;
+        }
+
+        .social-share {
+            margin-top: 30px;
+            padding: 20px;
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            border-radius: 15px;
+        }
+
+        .share-title {
+            color: #2d3436;
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .share-text {
+            color: #636e72;
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+
+        .btn-instagram {
+            background: linear-gradient(135deg, #e1306c, #fd1d1d, #fcb045);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 25px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+        }
+
+        .btn-instagram:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 16px rgba(225, 48, 108, 0.3);
+        }
+
+        /* Responsive Desktop */
+        @media (min-width: 769px) {
+            .container {
+                max-width: 700px;
+            }
+            
+            .game-container {
+                padding: 20px;
+            }
+            
+            .bingo-cell {
+                font-size: 0.7rem;
+                padding: 4px;
+            }
+            
+            .stats {
+                gap: 15px;
+            }
+            
+            .stat-card {
+                padding: 20px 15px;
+            }
+            
+            .stat-number {
+                font-size: 1.8rem;
+            }
+            
+            .celebration-content h1 {
+                font-size: 4rem;
+            }
+            
+            .certificate-title {
+                font-size: 2.5rem;
+            }
+            
+            .certificate-name {
+                font-size: 2rem;
+            }
+        }
+
+        /* Responsive Mobile */
         @media (max-width: 768px) {
             .container {
                 margin: 5px;
@@ -513,15 +689,27 @@
             }
             
             .stat-card {
-                padding: 15px 10px;
+                padding: 12px 8px;
             }
             
             .stat-number {
-                font-size: 1.5rem;
+                font-size: 1.3rem;
             }
             
             .celebration-content h1 {
                 font-size: 2.5rem;
+            }
+            
+            .certificate-title {
+                font-size: 1.5rem;
+            }
+            
+            .certificate-name {
+                font-size: 1.2rem;
+            }
+            
+            .certificate {
+                padding: 20px;
             }
         }
     </style>
@@ -623,6 +811,34 @@
             <div class="quiz-navigation">
                 <button class="btn btn-reset" onclick="previousQuestion()" id="prevBtn" style="display: none;">⬅️ Anterior</button>
                 <button class="btn btn-continue" onclick="nextQuestion()" id="nextBtn">Próxima ➡️</button>
+            </div>
+        </div>
+
+        <!-- Tela do Certificado -->
+        <div id="certificateScreen" class="certificate-container">
+            <div class="certificate">
+                <div class="certificate-title">CERTIFICADO</div>
+                <div class="certificate-subtitle">Certificamos que</div>
+                <div class="certificate-name" id="certificateName">NOME DA PESSOA</div>
+                <div class="certificate-text">
+                    superou desafios, desbloqueou sua criatividade e<br>
+                    agora já é um(a) Essencialista!
+                </div>
+                <div class="certificate-date">Julho de 2025</div>
+                <div class="cuboo-logo">
+                    cuboo<br>
+                    <small>experience</small>
+                </div>
+            </div>
+
+            <div class="social-share">
+                <div class="share-title">🎉 Parabéns, Essencialista!</div>
+                <div class="share-text">
+                    Compartilhe seu certificado no Instagram Stories e marque <strong>@cubooexp</strong> e <strong>@duhsoley</strong> para mostrar que você é um Essencialista!
+                </div>
+                <a href="#" class="btn-instagram" id="instagramBtn" onclick="shareOnInstagram()">
+                    📸 Postar no Stories
+                </a>
             </div>
         </div>
     </div>
@@ -995,6 +1211,40 @@
 
             // Enviar dados para Google Forms
             submitToGoogleForms();
+            
+            // Mostrar certificado
+            showCertificate();
+        }
+
+        // Mostrar certificado
+        function showCertificate() {
+            document.getElementById('quizScreen').style.display = 'none';
+            document.getElementById('certificateScreen').style.display = 'block';
+            document.getElementById('certificateName').textContent = gameState.playerName.toUpperCase();
+        }
+
+        // Compartilhar no Instagram
+        function shareOnInstagram() {
+            const text = `Acabei de me tornar um Essencialista! 🏆 Obrigado pela experiência incrível @cubooexp @duhsoley #Essencialista #Produtividade #CubooExperience`;
+            
+            // Tentar abrir Instagram Stories (funciona no mobile)
+            const instagramUrl = `instagram://story-camera`;
+            
+            // Fallback para web
+            const webUrl = `https://www.instagram.com/stories/camera/`;
+            
+            // Copiar texto para clipboard
+            navigator.clipboard.writeText(text).then(() => {
+                alert('Texto copiado! Cole no seu Stories e marque @cubooexp e @duhsoley');
+            });
+            
+            // Tentar abrir Instagram
+            window.open(instagramUrl, '_blank');
+            
+            // Fallback após 1 segundo
+            setTimeout(() => {
+                window.open(webUrl, '_blank');
+            }, 1000);
         }
 
         // Enviar dados para Google Forms
@@ -1027,10 +1277,9 @@
                 mode: 'no-cors',
                 body: formData
             }).then(() => {
-                alert(`🎉 DADOS ENVIADOS COM SUCESSO!\n\n📊 Seu resultado:\n• Nome: ${gameState.playerName}\n• Palavras marcadas: ${gameState.markedCells.size}/25\n• Bingos completos: ${gameState.bingosCompleted}\n• Pontuação final: ${gameState.totalPoints}\n• Percentual: ${percentage}%\n\n🏆 Aguarde o ranking final!`);
+                console.log('Dados enviados com sucesso!');
             }).catch((error) => {
                 console.error('Erro ao enviar:', error);
-                alert('Erro ao enviar dados. Tente novamente.');
             });
         }
     </script>
