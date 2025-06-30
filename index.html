@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🎯 BINGO ESSENCIALISTA - Missão Qualicorp</title>
+    <title>🎯 Bingo Essencialista - Qualicorp</title>
     <style>
         * {
             margin: 0;
@@ -14,879 +14,983 @@
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
             padding: 10px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
         }
 
         .container {
-            max-width: 100%;
-            width: 100%;
-            max-width: 500px;
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
         }
 
         .header {
+            background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+            color: white;
+            padding: 20px;
             text-align: center;
-            margin-bottom: 20px;
-            background: white;
-            padding: 15px;
-            border-radius: 15px;
-            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
         }
 
         .header h1 {
-            color: #FF4500;
-            font-size: 1.5em;
-            margin-bottom: 8px;
-            font-weight: bold;
+            font-size: 1.8rem;
+            margin-bottom: 10px;
         }
 
         .header p {
-            color: #666;
-            font-size: 0.9em;
-            line-height: 1.4;
+            opacity: 0.9;
+            font-size: 1rem;
         }
 
-        .card {
-            background: white;
-            padding: 15px;
-            border-radius: 15px;
-            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
-            margin-bottom: 15px;
+        .content {
+            padding: 20px;
         }
 
+        /* Formulário de Login */
         .login-form {
             display: block;
         }
 
-        .bingo-game {
-            display: none;
-        }
-
         .form-group {
-            margin-bottom: 15px;
+            margin-bottom: 20px;
         }
 
         .form-group label {
             display: block;
-            margin-bottom: 6px;
+            margin-bottom: 8px;
             font-weight: 600;
             color: #333;
-            font-size: 0.9em;
         }
 
         .form-group input {
             width: 100%;
-            padding: 10px;
-            border: 2px solid #e9ecef;
-            border-radius: 8px;
-            font-size: 0.9em;
-            transition: border-color 0.3s ease;
+            padding: 12px;
+            border: 2px solid #e1e8ed;
+            border-radius: 10px;
+            font-size: 16px;
+            transition: border-color 0.3s;
         }
 
         .form-group input:focus {
             outline: none;
-            border-color: #FF4500;
-        }
-
-        .form-group input.error {
-            border-color: #dc3545;
-        }
-
-        .error-message {
-            color: #dc3545;
-            font-size: 0.8em;
-            margin-top: 4px;
-            display: none;
+            border-color: #ff6b6b;
         }
 
         .btn {
-            padding: 10px 20px;
+            background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+            color: white;
             border: none;
-            border-radius: 8px;
-            font-weight: bold;
+            padding: 15px 30px;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: 600;
             cursor: pointer;
-            transition: all 0.3s ease;
-            font-size: 0.9em;
             width: 100%;
+            transition: transform 0.2s;
         }
 
-        .btn-primary {
-            background: #FF4500;
-            color: white;
+        .btn:hover {
+            transform: translateY(-2px);
         }
 
-        .btn-primary:hover {
-            background: #e63e00;
-            transform: translateY(-1px);
-        }
-
-        .btn-secondary {
-            background: #6c757d;
-            color: white;
-            width: auto;
-            margin-right: 8px;
-            font-size: 0.8em;
-            padding: 8px 12px;
-        }
-
-        .btn-secondary:hover {
-            background: #5a6268;
-            transform: translateY(-1px);
-        }
-
-        .btn-success {
-            background: #28a745;
-            color: white;
-            width: auto;
-            font-size: 0.8em;
-            padding: 8px 12px;
-        }
-
-        .btn-success:hover {
-            background: #218838;
-            transform: translateY(-1px);
+        /* Área do Jogo */
+        .game-area {
+            display: none;
         }
 
         .player-info {
-            background: #fff3e0;
-            border-left: 4px solid #FF4500;
-            padding: 10px;
-            margin-bottom: 15px;
-            border-radius: 6px;
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            border-left: 4px solid #ff6b6b;
         }
 
-        .player-info h3 {
-            color: #FF4500;
-            margin-bottom: 4px;
-            font-size: 0.9em;
-        }
-
-        .player-info p {
-            font-size: 0.8em;
-            color: #666;
+        .bingo-title {
+            text-align: center;
+            margin: 20px 0;
         }
 
         .bingo-title h2 {
-            color: #FF4500;
-            font-size: 1.3em;
-            margin-bottom: 8px;
-            text-align: center;
+            color: #ff6b6b;
+            font-size: 1.5rem;
+            margin-bottom: 10px;
         }
 
         .instructions {
-            background: #fff3e0;
-            border-left: 4px solid #FF4500;
-            padding: 10px;
-            margin-bottom: 15px;
-            border-radius: 6px;
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-left: 4px solid #fdcb6e;
         }
 
-        .instructions p {
-            color: #333;
-            font-size: 0.8em;
-            line-height: 1.3;
+        .progress-bar {
+            background: #e9ecef;
+            border-radius: 10px;
+            height: 8px;
+            margin-bottom: 20px;
+            overflow: hidden;
         }
 
+        .progress-fill {
+            background: linear-gradient(90deg, #ff6b6b, #ee5a24);
+            height: 100%;
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+
+        /* Cabeçalho BINGO */
+        .bingo-header {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 3px;
+            margin-bottom: 10px;
+        }
+
+        .bingo-letter {
+            background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+            color: white;
+            padding: 12px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+            border-radius: 8px;
+        }
+
+        /* Grade do Bingo */
         .bingo-grid {
             display: grid;
             grid-template-columns: repeat(5, 1fr);
-            gap: 4px;
-            margin-bottom: 15px;
-            max-width: 100%;
-        }
-
-        .bingo-header {
-            background: #FF4500;
-            color: white;
-            padding: 8px;
-            text-align: center;
-            font-weight: bold;
-            font-size: 1em;
-            border-radius: 6px;
-            letter-spacing: 1px;
+            gap: 3px;
+            margin-bottom: 20px;
         }
 
         .bingo-cell {
             background: #f8f9fa;
             border: 2px solid #e9ecef;
-            padding: 6px 2px;
+            border-radius: 8px;
+            padding: 8px 4px;
             text-align: center;
             cursor: pointer;
             transition: all 0.3s ease;
-            border-radius: 6px;
-            font-weight: 600;
-            font-size: 0.65em;
             min-height: 50px;
             display: flex;
             align-items: center;
             justify-content: center;
-            position: relative;
-            overflow: hidden;
+            font-size: 0.75rem;
+            font-weight: 600;
             line-height: 1.1;
+            word-wrap: break-word;
+            hyphens: auto;
         }
 
         .bingo-cell:hover {
-            transform: translateY(-1px);
-            box-shadow: 0 2px 8px rgba(255, 69, 0, 0.3);
-            border-color: #FF4500;
+            background: #e3f2fd;
+            border-color: #2196f3;
+            transform: scale(1.02);
         }
 
         .bingo-cell.marked {
-            background: linear-gradient(135deg, #FF4500, #ff6b35);
+            background: linear-gradient(135deg, #4caf50, #45a049);
             color: white;
-            border-color: #FF4500;
+            border-color: #4caf50;
             transform: scale(0.95);
-        }
-
-        .bingo-cell.marked::after {
-            content: '✓';
-            position: absolute;
-            top: 2px;
-            right: 4px;
-            font-size: 0.9em;
-            font-weight: bold;
         }
 
         .bingo-cell.free {
             background: linear-gradient(135deg, #28a745, #20c997);
             color: white;
             border-color: #28a745;
+            cursor: default;
         }
 
-        .bingo-cell.free::after {
-            content: '★';
-            position: absolute;
-            top: 2px;
-            right: 4px;
-            font-size: 0.9em;
-        }
-
+        /* Estatísticas */
         .stats {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 8px;
-            margin-bottom: 15px;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin-bottom: 20px;
         }
 
         .stat-card {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #667eea, #764ba2);
             color: white;
-            padding: 10px;
-            border-radius: 8px;
+            padding: 20px;
+            border-radius: 15px;
             text-align: center;
         }
 
         .stat-number {
-            font-size: 1.5em;
+            font-size: 2rem;
             font-weight: bold;
-            margin-bottom: 2px;
+            margin-bottom: 5px;
         }
 
         .stat-label {
-            font-size: 0.7em;
+            font-size: 0.9rem;
             opacity: 0.9;
         }
 
-        .progress-bar {
-            background: #e9ecef;
-            border-radius: 8px;
-            height: 15px;
-            margin-bottom: 15px;
-            overflow: hidden;
+        /* Botões de Ação */
+        .action-buttons {
+            display: grid;
+            gap: 10px;
+            margin-top: 20px;
         }
 
-        .progress-fill {
-            background: linear-gradient(90deg, #FF4500, #ff6b35);
-            height: 100%;
-            transition: width 0.5s ease;
-            border-radius: 8px;
+        .btn-secondary {
+            background: linear-gradient(135deg, #6c757d, #5a6268);
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 10px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: transform 0.2s;
         }
 
-        .actions {
-            display: flex;
-            gap: 8px;
-            justify-content: center;
-            flex-wrap: wrap;
+        .btn-success {
+            background: linear-gradient(135deg, #28a745, #20c997);
+            color: white;
+            border: none;
+            padding: 15px 20px;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s;
         }
 
-        .celebration {
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background: white;
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 15px 50px rgba(0,0,0,0.3);
-            text-align: center;
-            z-index: 1000;
+        .btn-secondary:hover, .btn-success:hover {
+            transform: translateY(-2px);
+        }
+
+        /* Quiz Area */
+        .quiz-area {
             display: none;
-            max-width: 90%;
         }
 
-        .celebration h3 {
-            color: #FF4500;
-            font-size: 2em;
-            margin-bottom: 15px;
+        .quiz-header {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            margin-bottom: 20px;
         }
 
-        .celebration p {
-            font-size: 1em;
+        .quiz-question {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-left: 4px solid #667eea;
+        }
+
+        .quiz-question h3 {
             color: #333;
             margin-bottom: 15px;
+            font-size: 1.1rem;
         }
 
-        .overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.5);
-            z-index: 999;
-            display: none;
+        .quiz-options {
+            display: grid;
+            gap: 10px;
         }
 
-        .loading {
-            display: none;
+        .quiz-option {
+            background: white;
+            border: 2px solid #e9ecef;
+            border-radius: 10px;
+            padding: 12px 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
+        }
+
+        .quiz-option:hover {
+            background: #e3f2fd;
+            border-color: #2196f3;
+        }
+
+        .quiz-option.selected {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border-color: #667eea;
+        }
+
+        .quiz-progress {
             text-align: center;
+            margin-bottom: 20px;
+            font-weight: 600;
+            color: #667eea;
+        }
+
+        /* Missões */
+        .missions-area {
+            display: none;
+        }
+
+        .mission-card {
+            background: white;
+            border: 2px solid #e9ecef;
+            border-radius: 15px;
             padding: 15px;
+            margin-bottom: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
         }
 
-        .loading .spinner {
-            border: 3px solid #f3f3f3;
-            border-top: 3px solid #FF4500;
-            border-radius: 50%;
-            width: 30px;
-            height: 30px;
-            animation: spin 1s linear infinite;
-            margin: 0 auto 10px;
+        .mission-card:hover {
+            border-color: #ff6b6b;
+            transform: translateY(-2px);
         }
 
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
+        .mission-card.selected {
+            background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+            color: white;
+            border-color: #ff6b6b;
         }
 
-        /* Otimizações específicas para mobile */
-        @media (max-width: 480px) {
+        .mission-title {
+            font-weight: bold;
+            margin-bottom: 8px;
+            font-size: 1rem;
+        }
+
+        .mission-desc {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
             .container {
-                padding: 0 5px;
+                margin: 5px;
+                border-radius: 15px;
             }
-            
+
             .header h1 {
-                font-size: 1.3em;
+                font-size: 1.5rem;
             }
-            
-            .header p {
-                font-size: 0.8em;
+
+            .content {
+                padding: 15px;
             }
-            
-            .bingo-grid {
-                gap: 3px;
-            }
-            
+
             .bingo-cell {
-                padding: 4px 1px;
-                font-size: 0.6em;
+                font-size: 0.65rem;
+                padding: 6px 3px;
                 min-height: 45px;
             }
-            
-            .bingo-header {
-                padding: 6px;
-                font-size: 0.9em;
+
+            .bingo-letter {
+                padding: 10px;
+                font-size: 1rem;
             }
 
-            .actions {
-                flex-direction: column;
+            .stats {
+                grid-template-columns: repeat(2, 1fr);
             }
 
-            .btn-secondary, .btn-success {
-                width: 100%;
-                margin-bottom: 8px;
-                margin-right: 0;
+            .stat-card {
+                padding: 15px;
+            }
+
+            .stat-number {
+                font-size: 1.5rem;
             }
         }
 
-        /* Otimizações para telas muito pequenas */
-        @media (max-width: 360px) {
+        @media (max-width: 480px) {
             .bingo-cell {
-                font-size: 0.55em;
+                font-size: 0.6rem;
+                padding: 4px 2px;
                 min-height: 40px;
-                padding: 3px 1px;
             }
-            
-            .stat-number {
-                font-size: 1.3em;
+
+            .header h1 {
+                font-size: 1.3rem;
             }
-            
-            .stat-label {
-                font-size: 0.65em;
+
+            .stats {
+                grid-template-columns: 1fr;
             }
+        }
+
+        /* Animações */
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        .bingo-achieved {
+            animation: pulse 0.6s ease-in-out;
+        }
+
+        /* Alertas */
+        .alert {
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .alert-success {
+            background: #d4edda;
+            border: 1px solid #c3e6cb;
+            color: #155724;
+        }
+
+        .alert-info {
+            background: #cce7ff;
+            border: 1px solid #b3d9ff;
+            color: #004085;
         }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="header">
-            <h1>🎯 BINGO ESSENCIALISTA</h1>
-            <p><strong>Missão Qualicorp:</strong> Participe da gamificação da palestra "A Inteligência do Essencial"!</p>
+            <h1>🎯 Bingo Essencialista</h1>
+            <p>Palestra Qualicorp - Gamificação Interativa</p>
         </div>
 
-        <!-- Formulário de Login -->
-        <div class="card login-form" id="loginForm">
-            <h2 style="color: #FF4500; text-align: center; margin-bottom: 15px; font-size: 1.1em;">👤 Identificação do Jogador</h2>
-            <p style="text-align: center; margin-bottom: 20px; color: #666; font-size: 0.8em;">Precisamos dessas informações para o ranking e contato dos vencedores</p>
-            
-            <form id="playerForm">
+        <div class="content">
+            <!-- Formulário de Login -->
+            <div class="login-form" id="loginForm">
                 <div class="form-group">
-                    <label for="playerName">Nome Completo *</label>
-                    <input type="text" id="playerName" name="playerName" required>
-                    <div class="error-message" id="nameError">Por favor, digite seu nome completo</div>
+                    <label for="playerName">👤 Nome Completo:</label>
+                    <input type="text" id="playerName" placeholder="Digite seu nome completo" required>
                 </div>
-
+                
                 <div class="form-group">
-                    <label for="playerDepartment">Departamento/Área na Qualicorp *</label>
-                    <input type="text" id="playerDepartment" name="playerDepartment" required>
-                    <div class="error-message" id="deptError">Por favor, digite seu departamento</div>
+                    <label for="department">🏢 Departamento/Área:</label>
+                    <input type="text" id="department" placeholder="Ex: Comercial, TI, RH..." required>
                 </div>
-
+                
                 <div class="form-group">
-                    <label for="playerWhatsapp">WhatsApp (apenas números) *</label>
-                    <input type="tel" id="playerWhatsapp" name="playerWhatsapp" placeholder="11999887766" required>
-                    <div class="error-message" id="whatsappError">Digite apenas números (ex: 11999887766)</div>
+                    <label for="whatsapp">📱 WhatsApp:</label>
+                    <input type="tel" id="whatsapp" placeholder="Ex: 11987654321" required>
+                </div>
+                
+                <button class="btn" onclick="startGame()">🚀 Começar a Jogar!</button>
+            </div>
+
+            <!-- Área do Jogo -->
+            <div class="game-area" id="gameArea">
+                <div class="player-info">
+                    <strong>🎮 Jogador:</strong> <span id="displayName"></span><br>
+                    <strong>🏢 Departamento:</strong> <span id="displayDepartment"></span>
                 </div>
 
-                <button type="submit" class="btn btn-primary">🎮 Começar a Jogar!</button>
-            </form>
-        </div>
-
-        <!-- Jogo do Bingo -->
-        <div class="card bingo-game" id="bingoGame">
-            <div class="player-info" id="playerInfo">
-                <h3>Jogador: <span id="displayName"></span></h3>
-                <p><strong>Departamento:</strong> <span id="displayDept"></span></p>
-            </div>
-
-            <div class="bingo-title">
-                <h2>🎮 SUA CARTELA ESSENCIALISTA</h2>
-            </div>
-
-            <div class="instructions">
-                <p><strong>Como jogar:</strong> Clique nas palavras quando Eduardo as mencionar. Complete uma linha, coluna ou diagonal para fazer BINGO!</p>
-            </div>
-
-            <div class="progress-bar">
-                <div class="progress-fill" id="progressFill"></div>
-            </div>
-
-            <div class="bingo-grid" id="bingoGrid">
-                <!-- Cabeçalhos -->
-                <div class="bingo-header">B</div>
-                <div class="bingo-header">I</div>
-                <div class="bingo-header">N</div>
-                <div class="bingo-header">G</div>
-                <div class="bingo-header">O</div>
-                
-                <!-- Linha B -->
-                <div class="bingo-cell" data-word="CÓRTEX">CÓRTEX</div>
-                <div class="bingo-cell" data-word="90%">90%</div>
-                <div class="bingo-cell" data-word="ESSENCIAL">ESSENCIAL</div>
-                <div class="bingo-cell" data-word="IRONMAN">IRONMAN</div>
-                <div class="bingo-cell" data-word="DISCIPLINA">DISCIPLINA</div>
-                
-                <!-- Linha I -->
-                <div class="bingo-cell" data-word="SWITCHING">SWITCHING</div>
-                <div class="bingo-cell" data-word="ELIMINAR">ELIMINAR</div>
-                <div class="bingo-cell" data-word="MENOS">MENOS</div>
-                <div class="bingo-cell" data-word="PREPARAÇÃO">PREPARAÇÃO</div>
-                <div class="bingo-cell" data-word="SISTEMAS">SISTEMAS</div>
-                
-                <!-- Linha N -->
-                <div class="bingo-cell" data-word="DOPAMINA">DOPAMINA</div>
-                <div class="bingo-cell" data-word="DIZER NÃO">DIZER<br>NÃO</div>
-                <div class="bingo-cell free" data-word="LIVRE">★ LIVRE ★</div>
-                <div class="bingo-cell" data-word="FINALIZAR">FINALIZAR</div>
-                <div class="bingo-cell" data-word="EXECUÇÃO">EXECUÇÃO</div>
-                
-                <!-- Linha G -->
-                <div class="bingo-cell" data-word="MULTITASK">MULTITASK</div>
-                <div class="bingo-cell" data-word="EXPLORAR">EXPLORAR</div>
-                <div class="bingo-cell" data-word="BLOCOS">BLOCOS</div>
-                <div class="bingo-cell" data-word="T1/T2">T1/T2</div>
-                <div class="bingo-cell" data-word="VONTADE">VONTADE</div>
-                
-                <!-- Linha O -->
-                <div class="bingo-cell" data-word="ATENÇÃO">ATENÇÃO</div>
-                <div class="bingo-cell" data-word="FOCO">FOCO</div>
-                <div class="bingo-cell" data-word="PRIORIDADE">PRIORIDADE</div>
-                <div class="bingo-cell" data-word="PERFORMANCE">PERFORMANCE</div>
-                <div class="bingo-cell" data-word="REALIZAM">REALIZAM</div>
-            </div>
-
-            <div class="stats">
-                <div class="stat-card">
-                    <div class="stat-number" id="markedCount">1</div>
-                    <div class="stat-label">Palavras Marcadas</div>
+                <div class="bingo-title">
+                    <h2>🎮 SUA CARTELA ESSENCIALISTA</h2>
                 </div>
-                <div class="stat-card">
-                    <div class="stat-number" id="bingoCount">0</div>
-                    <div class="stat-label">Bingos Completos</div>
+
+                <div class="instructions">
+                    <strong>Como jogar:</strong> Clique nas palavras quando Eduardo as mencionar. Complete uma linha, coluna ou diagonal para fazer BINGO! A palavra final será revelada no último slide.
                 </div>
-                <div class="stat-card">
-                    <div class="stat-number" id="scoreCount">50</div>
-                    <div class="stat-label">Pontos</div>
+
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressFill"></div>
+                </div>
+
+                <!-- Cabeçalho BINGO -->
+                <div class="bingo-header">
+                    <div class="bingo-letter">B</div>
+                    <div class="bingo-letter">I</div>
+                    <div class="bingo-letter">N</div>
+                    <div class="bingo-letter">G</div>
+                    <div class="bingo-letter">O</div>
+                </div>
+
+                <!-- Grade do Bingo -->
+                <div class="bingo-grid" id="bingoGrid"></div>
+
+                <!-- Estatísticas -->
+                <div class="stats">
+                    <div class="stat-card">
+                        <div class="stat-number" id="wordsMarked">0</div>
+                        <div class="stat-label">Palavras Marcadas</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number" id="bingosCompleted">0</div>
+                        <div class="stat-label">Bingos Completos</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number" id="totalPoints">50</div>
+                        <div class="stat-label">Pontos</div>
+                    </div>
+                </div>
+
+                <!-- Botões de Ação -->
+                <div class="action-buttons">
+                    <button class="btn-secondary" onclick="resetGame()">🔄 Resetar</button>
+                    <button class="btn-success" onclick="showQuiz()">🏆 Continuar para Quiz</button>
                 </div>
             </div>
 
-            <div class="actions">
-                <button class="btn btn-secondary" onclick="resetBingo()">🔄 Resetar</button>
-                <button class="btn btn-secondary" onclick="saveBingo()">💾 Salvar</button>
-                <button class="btn btn-success" onclick="submitToRanking()">🏆 Enviar Ranking</button>
+            <!-- Área do Quiz -->
+            <div class="quiz-area" id="quizArea">
+                <div class="quiz-header">
+                    <h2>🧠 Quiz Essencialista</h2>
+                    <p>Teste seus conhecimentos sobre produtividade!</p>
+                </div>
+
+                <div class="quiz-progress" id="quizProgress">Pergunta 1 de 9</div>
+
+                <div id="quizContainer"></div>
+
+                <div class="action-buttons">
+                    <button class="btn-secondary" onclick="previousQuestion()" id="prevBtn" style="display: none;">⬅️ Anterior</button>
+                    <button class="btn-success" onclick="nextQuestion()" id="nextBtn">Próxima ➡️</button>
+                </div>
             </div>
 
-            <div class="loading" id="loading">
-                <div class="spinner"></div>
-                <p>Enviando dados para o ranking...</p>
+            <!-- Área das Missões -->
+            <div class="missions-area" id="missionsArea">
+                <div class="quiz-header">
+                    <h2>🎯 Sua Missão Essencialista</h2>
+                    <p>Escolha uma missão para implementar em sua vida!</p>
+                </div>
+
+                <div id="missionsContainer"></div>
+
+                <div class="action-buttons">
+                    <button class="btn-success" onclick="submitAllData()" id="submitBtn">🏆 Enviar para Ranking</button>
+                </div>
             </div>
         </div>
-    </div>
-
-    <!-- Celebração -->
-    <div class="overlay" id="overlay"></div>
-    <div class="celebration" id="celebration">
-        <h3>🎉 BINGO!</h3>
-        <p>Parabéns! Você completou uma linha!</p>
-        <button class="btn btn-primary" onclick="closeCelebration()">Continuar</button>
     </div>
 
     <script>
-        // Configuração do Google Forms - FORMULÁRIO EXISTENTE QUE FUNCIONA
+        // Configuração do Google Forms
         const GOOGLE_FORMS_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSfJeWWrMj7TaZKMB6G4ULfTB1DEguXVBI40BzokN6XHR2qvJw/formResponse';
         
-        // IDs dos campos do Google Forms - DESCOBERTOS ANTERIORMENTE
+        // IDs dos campos do Google Forms
         const FORM_FIELDS = {
-            name: 'entry.513075573',        // Nome Completo
-            department: 'entry.1957744503', // Departamento/Área  
-            whatsapp: 'entry.1810613043',   // WhatsApp
-            markedWords: 'entry.1966396770', // Palavras Marcadas
-            bingoLines: 'entry.988307012',  // Número de Bingos Completos
-            score: 'entry.276912771',       // Pontuação Final
-            percentage: 'entry.1921957625', // Percentual de Conclusão
-            timestamp: 'entry.570034446'    // Data e Hora de Conclusão
+            nome: 'entry.513075573',
+            departamento: 'entry.1957744503', 
+            whatsapp: 'entry.1810613043',
+            palavrasMarcadas: 'entry.1966396770',
+            numeroBingos: 'entry.988307012',
+            pontuacaoFinal: 'entry.276912771',
+            percentual: 'entry.1921957625',
+            dataHora: 'entry.570034446'
         };
 
-        class BingoGameWithRanking {
-            constructor() {
-                this.playerData = null;
-                this.markedWords = new Set();
-                this.bingoLines = 0;
-                this.score = 50;
-                this.initializeLogin();
+        // Palavras do Bingo (otimizadas para mobile)
+        const bingoWords = [
+            'CÓRTEX', '90%', 'ESSENCIAL', 'IRONMAN', 'DISCIPLINA',
+            'SWITCHING', 'ELIMINAR', 'MENOS', 'PREPARAÇÃO', 'SISTEMAS',
+            'DOPAMINA', 'DIZER NÃO', 'LIVRE', 'FINALIZAR', 'EXECUÇÃO',
+            'MULTITASK', 'EXPLORAR', 'BLOCOS', 'T1/T2', 'VONTADE',
+            'ATENÇÃO', 'FOCO', 'PRIORIDADE', 'PERFORMANCE', 'REALIZAM'
+        ];
+
+        // Perguntas do Quiz
+        const quizQuestions = [
+            {
+                question: "Qual é o principal benefício de aplicar a regra dos 90%?",
+                options: [
+                    "Fazer mais tarefas ao mesmo tempo",
+                    "Focar apenas no que é verdadeiramente essencial",
+                    "Trabalhar mais horas por dia",
+                    "Eliminar todas as pausas"
+                ],
+                correct: 1
+            },
+            {
+                question: "O que significa 'switching' no contexto da produtividade?",
+                options: [
+                    "Trocar de emprego frequentemente",
+                    "Alternar entre diferentes tarefas rapidamente",
+                    "Mudar de estratégia constantemente",
+                    "Usar diferentes ferramentas"
+                ],
+                correct: 1
+            },
+            {
+                question: "Qual é a principal função do córtex pré-frontal?",
+                options: [
+                    "Controlar os movimentos do corpo",
+                    "Processar informações visuais",
+                    "Tomar decisões e manter o foco",
+                    "Regular a temperatura corporal"
+                ],
+                correct: 2
+            },
+            {
+                question: "Por que o multitasking é prejudicial à produtividade?",
+                options: [
+                    "Porque economiza tempo",
+                    "Porque reduz a qualidade e aumenta erros",
+                    "Porque é muito fácil de fazer",
+                    "Porque melhora a concentração"
+                ],
+                correct: 1
+            },
+            {
+                question: "O que são 'blocos de tempo' na gestão de tarefas?",
+                options: [
+                    "Períodos dedicados exclusivamente a uma atividade",
+                    "Horários para pausas obrigatórias",
+                    "Tempo perdido entre tarefas",
+                    "Reuniões longas e improdutivas"
+                ],
+                correct: 0
+            },
+            {
+                question: "Qual é o papel da dopamina na produtividade?",
+                options: [
+                    "Causar sonolência",
+                    "Motivar e recompensar conquistas",
+                    "Diminuir a energia",
+                    "Aumentar o estresse"
+                ],
+                correct: 1
+            },
+            {
+                question: "O que significa 'dizer não' no essencialismo?",
+                options: [
+                    "Ser rude com as pessoas",
+                    "Recusar todas as oportunidades",
+                    "Priorizar o que realmente importa",
+                    "Evitar responsabilidades"
+                ],
+                correct: 2
+            },
+            {
+                question: "Qual é a diferença entre T1 e T2 no contexto apresentado?",
+                options: [
+                    "T1 é manhã, T2 é tarde",
+                    "T1 é trabalho, T2 é descanso",
+                    "T1 é foco profundo, T2 é tarefas administrativas",
+                    "T1 é individual, T2 é em equipe"
+                ],
+                correct: 2
+            },
+            {
+                question: "Por que a preparação é fundamental para a execução?",
+                options: [
+                    "Para perder tempo planejando",
+                    "Para evitar a ação",
+                    "Para garantir foco e eficiência na execução",
+                    "Para complicar o processo"
+                ],
+                correct: 2
             }
+        ];
 
-            initializeLogin() {
-                document.getElementById('playerForm').addEventListener('submit', (e) => {
-                    e.preventDefault();
-                    this.validateAndStartGame();
-                });
+        // Missões Essencialistas
+        const missions = [
+            {
+                title: "🎯 MISSÃO 90% - Aplicar regra dos 90% em todas decisões",
+                description: "Comprometo-me a avaliar cada oportunidade com a pergunta: 'Isso é um 9 ou 10 para mim?' Se não for, vou dizer não."
+            },
+            {
+                title: "🚫 MISSÃO NÃO - Dizer não para 3 solicitações não-essenciais",
+                description: "Vou praticar o poder do 'não' elegante, recusando pelo menos 3 pedidos que não se alinham com minhas prioridades principais."
+            },
+            {
+                title: "📅 MISSÃO BLOCOS - Agendar blocos específicos para prioridades",
+                description: "Vou criar blocos de tempo dedicados exclusivamente às minhas tarefas mais importantes, sem interrupções."
+            },
+            {
+                title: "😴 MISSÃO SONO - Ritual de sono por 7 dias consecutivos",
+                description: "Comprometo-me a seguir um ritual de sono consistente por uma semana, priorizando 7-8 horas de descanso de qualidade."
             }
+        ];
 
-            validateAndStartGame() {
-                const name = document.getElementById('playerName').value.trim();
-                const department = document.getElementById('playerDepartment').value.trim();
-                const whatsapp = document.getElementById('playerWhatsapp').value.trim();
+        // Variáveis do jogo
+        let gameData = {
+            playerName: '',
+            department: '',
+            whatsapp: '',
+            markedWords: [],
+            bingosCompleted: 0,
+            totalPoints: 50,
+            startTime: null,
+            quizAnswers: [],
+            selectedMission: null,
+            currentQuizQuestion: 0
+        };
 
-                let isValid = true;
-
-                // Validar nome
-                if (name.length < 2) {
-                    this.showError('nameError', 'playerName');
-                    isValid = false;
-                } else {
-                    this.hideError('nameError', 'playerName');
-                }
-
-                // Validar departamento
-                if (department.length < 2) {
-                    this.showError('deptError', 'playerDepartment');
-                    isValid = false;
-                } else {
-                    this.hideError('deptError', 'playerDepartment');
-                }
-
-                // Validar WhatsApp
-                const whatsappRegex = /^\d{10,11}$/;
-                if (!whatsappRegex.test(whatsapp)) {
-                    this.showError('whatsappError', 'playerWhatsapp');
-                    isValid = false;
-                } else {
-                    this.hideError('whatsappError', 'playerWhatsapp');
-                }
-
-                if (isValid) {
-                    this.playerData = { name, department, whatsapp };
-                    this.startGame();
-                }
+        // Inicializar o jogo
+        function initGame() {
+            createBingoGrid();
+            // Marcar célula central como LIVRE
+            const centerCell = document.querySelector('[data-index="12"]');
+            if (centerCell) {
+                centerCell.classList.add('marked', 'free');
+                centerCell.innerHTML = '⭐ LIVRE ⭐';
+                gameData.markedWords.push('LIVRE');
+                updateStats();
             }
+        }
 
-            showError(errorId, inputId) {
-                document.getElementById(errorId).style.display = 'block';
-                document.getElementById(inputId).classList.add('error');
-            }
-
-            hideError(errorId, inputId) {
-                document.getElementById(errorId).style.display = 'none';
-                document.getElementById(inputId).classList.remove('error');
-            }
-
-            startGame() {
-                // Esconder formulário e mostrar jogo
-                document.getElementById('loginForm').style.display = 'none';
-                document.getElementById('bingoGame').style.display = 'block';
-
-                // Mostrar dados do jogador
-                document.getElementById('displayName').textContent = this.playerData.name;
-                document.getElementById('displayDept').textContent = this.playerData.department;
-
-                // Inicializar jogo
-                this.initializeBingo();
-            }
-
-            initializeBingo() {
-                // Marcar casa livre automaticamente
-                const freeCell = document.querySelector('[data-word="LIVRE"]');
-                if (freeCell) {
-                    this.markedWords.add('LIVRE');
-                    freeCell.classList.add('marked');
-                }
-
-                // Adicionar event listeners
-                document.querySelectorAll('.bingo-cell:not(.free)').forEach(cell => {
-                    cell.addEventListener('click', () => this.toggleCell(cell));
-                });
-
-                this.updateStats();
-                this.updateProgress();
-            }
-
-            toggleCell(cell) {
-                const word = cell.dataset.word;
+        // Criar grade do bingo
+        function createBingoGrid() {
+            const grid = document.getElementById('bingoGrid');
+            grid.innerHTML = '';
+            
+            bingoWords.forEach((word, index) => {
+                const cell = document.createElement('div');
+                cell.className = 'bingo-cell';
+                cell.textContent = word;
+                cell.dataset.index = index;
+                cell.dataset.word = word;
                 
-                if (this.markedWords.has(word)) {
-                    // Desmarcar
-                    this.markedWords.delete(word);
-                    cell.classList.remove('marked');
-                    this.score -= 10;
+                if (index === 12) { // Célula central
+                    cell.classList.add('free');
+                    cell.innerHTML = '⭐ LIVRE ⭐';
                 } else {
-                    // Marcar
-                    this.markedWords.add(word);
-                    cell.classList.add('marked');
-                    this.score += 10;
-                    
-                    // Verificar se completou uma linha
-                    if (this.checkForBingo()) {
-                        this.celebrateBingo();
-                    }
+                    cell.addEventListener('click', () => markWord(cell, word));
                 }
+                
+                grid.appendChild(cell);
+            });
+        }
 
-                this.updateStats();
-                this.updateProgress();
-                this.saveProgress();
+        // Iniciar jogo
+        function startGame() {
+            const name = document.getElementById('playerName').value.trim();
+            const dept = document.getElementById('department').value.trim();
+            const phone = document.getElementById('whatsapp').value.trim();
+            
+            if (!name || !dept || !phone) {
+                alert('Por favor, preencha todos os campos!');
+                return;
             }
+            
+            gameData.playerName = name;
+            gameData.department = dept;
+            gameData.whatsapp = phone;
+            gameData.startTime = new Date();
+            
+            document.getElementById('displayName').textContent = name;
+            document.getElementById('displayDepartment').textContent = dept;
+            
+            document.getElementById('loginForm').style.display = 'none';
+            document.getElementById('gameArea').style.display = 'block';
+            
+            initGame();
+        }
 
-            checkForBingo() {
-                const grid = [
-                    ['CÓRTEX', '90%', 'ESSENCIAL', 'IRONMAN', 'DISCIPLINA'],
-                    ['SWITCHING', 'ELIMINAR', 'MENOS', 'PREPARAÇÃO', 'SISTEMAS'],
-                    ['DOPAMINA', 'DIZER NÃO', 'LIVRE', 'FINALIZAR', 'EXECUÇÃO'],
-                    ['MULTITASK', 'EXPLORAR', 'BLOCOS', 'T1/T2', 'VONTADE'],
-                    ['ATENÇÃO', 'FOCO', 'PRIORIDADE', 'PERFORMANCE', 'REALIZAM']
-                ];
+        // Marcar palavra
+        function markWord(cell, word) {
+            if (cell.classList.contains('marked')) {
+                // Desmarcar
+                cell.classList.remove('marked');
+                gameData.markedWords = gameData.markedWords.filter(w => w !== word);
+                gameData.totalPoints -= 10;
+            } else {
+                // Marcar
+                cell.classList.add('marked');
+                gameData.markedWords.push(word);
+                gameData.totalPoints += 10;
+                
+                // Verificar bingo
+                checkForBingo();
+            }
+            
+            updateStats();
+        }
 
-                let newBingos = 0;
-
-                // Verificar linhas horizontais
-                for (let row = 0; row < 5; row++) {
-                    if (grid[row].every(word => this.markedWords.has(word))) {
-                        newBingos++;
-                    }
-                }
-
-                // Verificar colunas verticais
-                for (let col = 0; col < 5; col++) {
-                    if (grid.every(row => this.markedWords.has(row[col]))) {
-                        newBingos++;
-                    }
-                }
-
-                // Verificar diagonal principal
-                if ([0,1,2,3,4].every(i => this.markedWords.has(grid[i][i]))) {
+        // Verificar bingo
+        function checkForBingo() {
+            const grid = document.querySelectorAll('.bingo-cell');
+            const marked = Array.from(grid).map(cell => cell.classList.contains('marked'));
+            
+            const bingoPatterns = [
+                // Linhas
+                [0,1,2,3,4], [5,6,7,8,9], [10,11,12,13,14], [15,16,17,18,19], [20,21,22,23,24],
+                // Colunas
+                [0,5,10,15,20], [1,6,11,16,21], [2,7,12,17,22], [3,8,13,18,23], [4,9,14,19,24],
+                // Diagonais
+                [0,6,12,18,24], [4,8,12,16,20]
+            ];
+            
+            let newBingos = 0;
+            bingoPatterns.forEach(pattern => {
+                if (pattern.every(index => marked[index])) {
                     newBingos++;
                 }
-
-                // Verificar diagonal secundária
-                if ([0,1,2,3,4].every(i => this.markedWords.has(grid[i][4-i]))) {
-                    newBingos++;
-                }
-
-                const hadNewBingo = newBingos > this.bingoLines;
-                this.bingoLines = newBingos;
+            });
+            
+            if (newBingos > gameData.bingosCompleted) {
+                gameData.bingosCompleted = newBingos;
+                gameData.totalPoints += (newBingos - gameData.bingosCompleted + 1) * 100;
                 
-                return hadNewBingo;
+                // Animação de bingo
+                document.querySelector('.bingo-grid').classList.add('bingo-achieved');
+                setTimeout(() => {
+                    document.querySelector('.bingo-grid').classList.remove('bingo-achieved');
+                }, 600);
             }
+        }
 
-            celebrateBingo() {
-                document.getElementById('overlay').style.display = 'block';
-                document.getElementById('celebration').style.display = 'block';
-                this.score += 100; // Bônus por completar bingo
-            }
+        // Atualizar estatísticas
+        function updateStats() {
+            document.getElementById('wordsMarked').textContent = gameData.markedWords.length;
+            document.getElementById('bingosCompleted').textContent = gameData.bingosCompleted;
+            document.getElementById('totalPoints').textContent = gameData.totalPoints;
+            
+            const progress = (gameData.markedWords.length / 25) * 100;
+            document.getElementById('progressFill').style.width = progress + '%';
+        }
 
-            closeCelebration() {
-                document.getElementById('overlay').style.display = 'none';
-                document.getElementById('celebration').style.display = 'none';
-            }
-
-            updateStats() {
-                document.getElementById('markedCount').textContent = this.markedWords.size;
-                document.getElementById('bingoCount').textContent = this.bingoLines;
-                document.getElementById('scoreCount').textContent = this.score;
-            }
-
-            updateProgress() {
-                const progress = (this.markedWords.size / 25) * 100;
-                document.getElementById('progressFill').style.width = progress + '%';
-            }
-
-            saveProgress() {
-                const data = {
-                    playerData: this.playerData,
-                    markedWords: Array.from(this.markedWords),
-                    bingoLines: this.bingoLines,
-                    score: this.score,
-                    timestamp: new Date().toISOString()
-                };
-                localStorage.setItem('bingoEssencialista', JSON.stringify(data));
-            }
-
-            reset() {
-                this.markedWords.clear();
-                this.bingoLines = 0;
-                this.score = 50;
+        // Resetar jogo
+        function resetGame() {
+            if (confirm('Tem certeza que deseja resetar o jogo?')) {
+                gameData.markedWords = ['LIVRE'];
+                gameData.bingosCompleted = 0;
+                gameData.totalPoints = 50;
                 
                 document.querySelectorAll('.bingo-cell').forEach(cell => {
                     cell.classList.remove('marked');
-                });
-
-                // Remarcar casa livre
-                const freeCell = document.querySelector('[data-word="LIVRE"]');
-                if (freeCell) {
-                    this.markedWords.add('LIVRE');
-                    freeCell.classList.add('marked');
-                }
-
-                this.updateStats();
-                this.updateProgress();
-                this.saveProgress();
-            }
-
-            async submitToRanking() {
-                if (!confirm('Enviar seus dados para o ranking? Isso finalizará sua participação no bingo.')) {
-                    return;
-                }
-
-                document.getElementById('loading').style.display = 'block';
-
-                const finalData = {
-                    name: this.playerData.name,
-                    department: this.playerData.department,
-                    whatsapp: this.playerData.whatsapp,
-                    markedWords: Array.from(this.markedWords).join(', '),
-                    bingoLines: this.bingoLines,
-                    score: this.score,
-                    percentage: Math.round((this.markedWords.size / 25) * 100),
-                    timestamp: new Date().toLocaleString('pt-BR')
-                };
-
-                try {
-                    const success = await this.sendToGoogleForms(finalData);
-                    
-                    document.getElementById('loading').style.display = 'none';
-                    
-                    if (success) {
-                        alert(`🎉 DADOS ENVIADOS COM SUCESSO!\n\n📊 SEU RESULTADO:\n• Nome: ${finalData.name}\n• Departamento: ${finalData.department}\n• Palavras marcadas: ${this.markedWords.size}/25\n• Bingos completos: ${finalData.bingoLines}\n• Pontuação: ${finalData.score} pontos\n• Aproveitamento: ${finalData.percentage}%\n\n🏆 Seus dados foram enviados para o ranking!\nObrigado por participar!`);
-                        
-                        // Desabilitar botões após envio
-                        document.querySelector('.btn-success').disabled = true;
-                        document.querySelector('.btn-success').textContent = '✅ Enviado!';
-                    } else {
-                        alert('❌ Erro ao enviar dados. Tente novamente.');
+                    if (cell.dataset.index === '12') {
+                        cell.classList.add('marked', 'free');
                     }
-                } catch (error) {
-                    document.getElementById('loading').style.display = 'none';
-                    console.error('Erro:', error);
-                    alert('❌ Erro ao enviar dados. Verifique sua conexão e tente novamente.');
-                }
-            }
-
-            async sendToGoogleForms(data) {
-                try {
-                    const formData = new FormData();
-                    
-                    // Mapear dados para os campos do formulário
-                    formData.append(FORM_FIELDS.name, data.name);
-                    formData.append(FORM_FIELDS.department, data.department);
-                    formData.append(FORM_FIELDS.whatsapp, data.whatsapp);
-                    formData.append(FORM_FIELDS.markedWords, data.markedWords);
-                    formData.append(FORM_FIELDS.bingoLines, data.bingoLines);
-                    formData.append(FORM_FIELDS.score, data.score);
-                    formData.append(FORM_FIELDS.percentage, data.percentage);
-                    formData.append(FORM_FIELDS.timestamp, data.timestamp);
-
-                    // Enviar para Google Forms
-                    const response = await fetch(GOOGLE_FORMS_URL, {
-                        method: 'POST',
-                        body: formData,
-                        mode: 'no-cors'
-                    });
-
-                    return true; // no-cors sempre retorna opaque response
-                } catch (error) {
-                    console.error('Erro ao enviar para Google Forms:', error);
-                    return false;
-                }
+                });
+                
+                updateStats();
             }
         }
 
-        // Inicializar o jogo
-        let bingoGame;
-        document.addEventListener('DOMContentLoaded', () => {
-            bingoGame = new BingoGameWithRanking();
+        // Mostrar quiz
+        function showQuiz() {
+            document.getElementById('gameArea').style.display = 'none';
+            document.getElementById('quizArea').style.display = 'block';
+            loadQuizQuestion();
+        }
+
+        // Carregar pergunta do quiz
+        function loadQuizQuestion() {
+            const container = document.getElementById('quizContainer');
+            const question = quizQuestions[gameData.currentQuizQuestion];
+            
+            container.innerHTML = `
+                <div class="quiz-question">
+                    <h3>${question.question}</h3>
+                    <div class="quiz-options">
+                        ${question.options.map((option, index) => `
+                            <div class="quiz-option" onclick="selectQuizOption(${index})" data-option="${index}">
+                                ${option}
+                            </div>
+                        `).join('')}
+                    </div>
+                </div>
+            `;
+            
+            document.getElementById('quizProgress').textContent = 
+                `Pergunta ${gameData.currentQuizQuestion + 1} de ${quizQuestions.length}`;
+            
+            // Atualizar botões
+            document.getElementById('prevBtn').style.display = 
+                gameData.currentQuizQuestion > 0 ? 'block' : 'none';
+            document.getElementById('nextBtn').textContent = 
+                gameData.currentQuizQuestion === quizQuestions.length - 1 ? 'Finalizar Quiz' : 'Próxima ➡️';
+        }
+
+        // Selecionar opção do quiz
+        function selectQuizOption(optionIndex) {
+            document.querySelectorAll('.quiz-option').forEach(opt => opt.classList.remove('selected'));
+            document.querySelector(`[data-option="${optionIndex}"]`).classList.add('selected');
+            gameData.quizAnswers[gameData.currentQuizQuestion] = optionIndex;
+        }
+
+        // Próxima pergunta
+        function nextQuestion() {
+            if (gameData.quizAnswers[gameData.currentQuizQuestion] === undefined) {
+                alert('Por favor, selecione uma resposta!');
+                return;
+            }
+            
+            if (gameData.currentQuizQuestion < quizQuestions.length - 1) {
+                gameData.currentQuizQuestion++;
+                loadQuizQuestion();
+            } else {
+                showMissions();
+            }
+        }
+
+        // Pergunta anterior
+        function previousQuestion() {
+            if (gameData.currentQuizQuestion > 0) {
+                gameData.currentQuizQuestion--;
+                loadQuizQuestion();
+            }
+        }
+
+        // Mostrar missões
+        function showMissions() {
+            document.getElementById('quizArea').style.display = 'none';
+            document.getElementById('missionsArea').style.display = 'block';
+            loadMissions();
+        }
+
+        // Carregar missões
+        function loadMissions() {
+            const container = document.getElementById('missionsContainer');
+            container.innerHTML = missions.map((mission, index) => `
+                <div class="mission-card" onclick="selectMission(${index})" data-mission="${index}">
+                    <div class="mission-title">${mission.title}</div>
+                    <div class="mission-desc">${mission.description}</div>
+                </div>
+            `).join('');
+        }
+
+        // Selecionar missão
+        function selectMission(missionIndex) {
+            document.querySelectorAll('.mission-card').forEach(card => card.classList.remove('selected'));
+            document.querySelector(`[data-mission="${missionIndex}"]`).classList.add('selected');
+            gameData.selectedMission = missionIndex;
+        }
+
+        // Enviar todos os dados
+        function submitAllData() {
+            if (gameData.selectedMission === null) {
+                alert('Por favor, selecione uma missão!');
+                return;
+            }
+            
+            const formData = new FormData();
+            const endTime = new Date();
+            const percentage = Math.round((gameData.markedWords.length / 25) * 100);
+            
+            formData.append(FORM_FIELDS.nome, gameData.playerName);
+            formData.append(FORM_FIELDS.departamento, gameData.department);
+            formData.append(FORM_FIELDS.whatsapp, gameData.whatsapp);
+            formData.append(FORM_FIELDS.palavrasMarcadas, gameData.markedWords.join(', '));
+            formData.append(FORM_FIELDS.numeroBingos, gameData.bingosCompleted);
+            formData.append(FORM_FIELDS.pontuacaoFinal, gameData.totalPoints);
+            formData.append(FORM_FIELDS.percentual, percentage + '%');
+            formData.append(FORM_FIELDS.dataHora, endTime.toLocaleString('pt-BR'));
+            
+            // Enviar para Google Forms
+            fetch(GOOGLE_FORMS_URL, {
+                method: 'POST',
+                mode: 'no-cors',
+                body: formData
+            }).then(() => {
+                alert(`🎉 DADOS ENVIADOS COM SUCESSO!\n\n📊 Seu resultado:\n• Nome: ${gameData.playerName}\n• Palavras marcadas: ${gameData.markedWords.length}/25\n• Bingos completos: ${gameData.bingosCompleted}\n• Pontuação final: ${gameData.totalPoints}\n• Percentual: ${percentage}%\n\n🎯 Aguarde o ranking final!`);
+            }).catch(() => {
+                alert('❌ Erro ao enviar dados. Tente novamente!');
+            });
+        }
+
+        // Inicializar quando a página carregar
+        document.addEventListener('DOMContentLoaded', function() {
+            // Página carregada e pronta
         });
-
-        // Funções globais para os botões
-        function resetBingo() {
-            if (confirm('Tem certeza que deseja resetar todo o progresso?')) {
-                bingoGame.reset();
-            }
-        }
-
-        function saveBingo() {
-            bingoGame.saveProgress();
-            alert('✅ Progresso salvo com sucesso!');
-        }
-
-        function submitToRanking() {
-            bingoGame.submitToRanking();
-        }
-
-        function closeCelebration() {
-            bingoGame.closeCelebration();
-        }
     </script>
 </body>
 </html>
