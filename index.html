@@ -525,19 +525,19 @@
     </div>
 
     <script>
-        // Configuração do Google Forms - ATUALIZADO COM FORMULÁRIO ATUAL
+        // Configuração do Google Forms - ATUALIZADO COM IDs CORRETOS
         const GOOGLE_FORMS_URL = 'https://docs.google.com/forms/d/e/1WXoQalkr2X0yZ62YzpMb1unnf0rLQQoBoqd_oD16K3I/formResponse';
         
-        // IDs dos campos do Google Forms - ATUALIZADOS COM FORMULÁRIO ATUAL
+        // IDs dos campos do Google Forms - DESCOBERTOS PELO CONSOLE
         const FORM_FIELDS = {
-            name: 'entry.513075573',
-            department: 'entry.1810613043',
-            whatsapp: 'entry.195774503',
-            markedWords: 'entry.196639670',
-            bingoLines: 'entry.988307012',
-            score: 'entry.276012771',
-            percentage: 'entry.192195762',
-            timestamp: 'entry.570834446'
+            name: 'entry.513075573',        // Primeiro campo (Nome)
+            department: 'entry.195774503',  // Segundo campo (Departamento)  
+            whatsapp: 'entry.1810613043',   // Terceiro campo (WhatsApp)
+            markedWords: 'entry.196639670', // Quarto campo (Palavras)
+            bingoLines: 'entry.988307012',  // Quinto campo (Bingos)
+            score: 'entry.276912771',       // Sexto campo (Pontuação)
+            percentage: 'entry.192195762',  // Sétimo campo (Percentual)
+            timestamp: 'entry.570834446'    // Oitavo campo (Timestamp)
         };
 
         class BingoGameWithRanking {
@@ -791,7 +791,7 @@
             async sendToGoogleForms(data) {
                 const formData = new FormData();
                 
-                // Adicionar dados ao formulário
+                // Adicionar dados ao formulário com IDs corretos
                 formData.append(FORM_FIELDS.name, data.name);
                 formData.append(FORM_FIELDS.department, data.department);
                 formData.append(FORM_FIELDS.whatsapp, data.whatsapp);
@@ -840,3 +840,4 @@
     </script>
 </body>
 </html>
+
