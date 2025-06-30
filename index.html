@@ -525,19 +525,19 @@
     </div>
 
     <script>
-        // Configuração do Google Forms - ATUALIZADO COM IDs CORRETOS
-        const GOOGLE_FORMS_URL = 'https://docs.google.com/forms/d/e/1WXoQalkr2X0yZ62YzpMb1unnf0rLQQoBoqd_oD16K3I/formResponse';
+        // Configuração do Google Forms - CORRIGIDO COM URL E IDs REAIS
+        const GOOGLE_FORMS_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSfJeWWrMj7TaZKMB6G4ULfTB1DEguXVBI40BzokN6XHR2qvJw/formResponse';
         
-        // IDs dos campos do Google Forms - DESCOBERTOS PELO CONSOLE
+        // IDs dos campos do Google Forms - DESCOBERTOS VIA CONSOLE
         const FORM_FIELDS = {
-            name: 'entry.513075573',        // Primeiro campo (Nome)
-            department: 'entry.195774503',  // Segundo campo (Departamento)  
-            whatsapp: 'entry.1810613043',   // Terceiro campo (WhatsApp)
-            markedWords: 'entry.196639670', // Quarto campo (Palavras)
-            bingoLines: 'entry.988307012',  // Quinto campo (Bingos)
-            score: 'entry.276912771',       // Sexto campo (Pontuação)
-            percentage: 'entry.192195762',  // Sétimo campo (Percentual)
-            timestamp: 'entry.570834446'    // Oitavo campo (Timestamp)
+            name: 'entry.513075573',        // Nome Completo
+            department: 'entry.1957744503', // Departamento/Área  
+            whatsapp: 'entry.1810613043',   // WhatsApp
+            markedWords: 'entry.1966396770', // Palavras Marcadas
+            bingoLines: 'entry.988307012',  // Número de Bingos Completos
+            score: 'entry.276912771',       // Pontuação Final
+            percentage: 'entry.1921957625', // Percentual de Conclusão
+            timestamp: 'entry.570034446'    // Data e Hora de Conclusão
         };
 
         class BingoGameWithRanking {
@@ -773,42 +773,52 @@
                 };
 
                 try {
-                    await this.sendToGoogleForms(finalData);
+                    const success = await this.sendToGoogleForms(finalData);
                     
-                    alert(`🎉 DADOS ENVIADOS COM SUCESSO!\n\n📊 Seu resultado:\n• Nome: ${finalData.name}\n• Palavras marcadas: ${this.markedWords.size}/25\n• Bingos completos: ${finalData.bingoLines}\n• Pontuação final: ${finalData.score}\n• Percentual: ${finalData.percentage}%\n\n🏆 Aguarde o ranking final!`);
-                    
-                    // Salvar dados finais
-                    localStorage.setItem('bingoEssencialistaFinal', JSON.stringify(finalData));
-                    
-                } catch (error) {
-                    console.error('Erro ao enviar dados:', error);
-                    alert('❌ Erro ao enviar dados. Tente novamente ou procure o organizador.');
-                } finally {
                     document.getElementById('loading').style.display = 'none';
+                    
+                    if (success) {
+                        alert(`🎉 DADOS ENVIADOS COM SUCESSO!\n\n📊 SEU RESULTADO:\n• Nome: ${finalData.name}\n• Departamento: ${finalData.department}\n• Palavras marcadas: ${this.markedWords.size}/25\n• Bingos completos: ${finalData.bingoLines}\n• Pontuação: ${finalData.score} pontos\n• Aproveitamento: ${finalData.percentage}%\n\n🏆 Seus dados foram enviados para o ranking!\nObrigado por participar!`);
+                        
+                        // Desabilitar botões após envio
+                        document.querySelector('.btn-success').disabled = true;
+                        document.querySelector('.btn-success').textContent = '✅ Enviado!';
+                    } else {
+                        alert('❌ Erro ao enviar dados. Tente novamente.');
+                    }
+                } catch (error) {
+                    document.getElementById('loading').style.display = 'none';
+                    console.error('Erro:', error);
+                    alert('❌ Erro ao enviar dados. Verifique sua conexão e tente novamente.');
                 }
             }
 
             async sendToGoogleForms(data) {
-                const formData = new FormData();
-                
-                // Adicionar dados ao formulário com IDs corretos
-                formData.append(FORM_FIELDS.name, data.name);
-                formData.append(FORM_FIELDS.department, data.department);
-                formData.append(FORM_FIELDS.whatsapp, data.whatsapp);
-                formData.append(FORM_FIELDS.markedWords, data.markedWords);
-                formData.append(FORM_FIELDS.bingoLines, data.bingoLines);
-                formData.append(FORM_FIELDS.score, data.score);
-                formData.append(FORM_FIELDS.percentage, data.percentage);
-                formData.append(FORM_FIELDS.timestamp, data.timestamp);
+                try {
+                    const formData = new FormData();
+                    
+                    // Mapear dados para os campos do formulário
+                    formData.append(FORM_FIELDS.name, data.name);
+                    formData.append(FORM_FIELDS.department, data.department);
+                    formData.append(FORM_FIELDS.whatsapp, data.whatsapp);
+                    formData.append(FORM_FIELDS.markedWords, data.markedWords);
+                    formData.append(FORM_FIELDS.bingoLines, data.bingoLines);
+                    formData.append(FORM_FIELDS.score, data.score);
+                    formData.append(FORM_FIELDS.percentage, data.percentage);
+                    formData.append(FORM_FIELDS.timestamp, data.timestamp);
 
-                // Enviar para Google Forms
-                const response = await fetch(GOOGLE_FORMS_URL, {
-                    method: 'POST',
-                    body: formData,
-                    mode: 'no-cors'
-                });
+                    // Enviar para Google Forms
+                    const response = await fetch(GOOGLE_FORMS_URL, {
+                        method: 'POST',
+                        body: formData,
+                        mode: 'no-cors'
+                    });
 
-                return response;
+                    return true; // no-cors sempre retorna opaque response
+                } catch (error) {
+                    console.error('Erro ao enviar para Google Forms:', error);
+                    return false;
+                }
             }
         }
 
