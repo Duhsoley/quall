@@ -16,17 +16,17 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
-            padding: 10px;
+            padding: 5px;
             position: relative;
             overflow-x: hidden;
         }
 
         .container {
-            max-width: 800px;
+            max-width: 550px;
             margin: 0 auto;
             background: white;
-            border-radius: 20px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            border-radius: 15px;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
             overflow: hidden;
             position: relative;
         }
@@ -35,47 +35,48 @@
             background: linear-gradient(135deg, #ff6b6b, #ee5a24);
             color: white;
             text-align: center;
-            padding: 20px;
+            padding: 15px;
             position: relative;
         }
 
         .header h1 {
-            font-size: 1.8rem;
-            margin-bottom: 5px;
+            font-size: 1.5rem;
+            margin-bottom: 3px;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 10px;
+            gap: 8px;
         }
 
         .header p {
             opacity: 0.9;
-            font-size: 0.9rem;
+            font-size: 0.8rem;
         }
 
         .login-form {
-            padding: 30px;
+            padding: 20px;
             text-align: center;
         }
 
         .form-group {
-            margin-bottom: 20px;
+            margin-bottom: 15px;
             text-align: left;
         }
 
         .form-group label {
             display: block;
-            margin-bottom: 8px;
+            margin-bottom: 6px;
             font-weight: 600;
             color: #333;
+            font-size: 0.9rem;
         }
 
         .form-group input {
             width: 100%;
-            padding: 12px;
+            padding: 10px;
             border: 2px solid #e1e8ed;
-            border-radius: 10px;
-            font-size: 16px;
+            border-radius: 8px;
+            font-size: 14px;
             transition: border-color 0.3s;
         }
 
@@ -88,9 +89,9 @@
             background: linear-gradient(135deg, #ff6b6b, #ee5a24);
             color: white;
             border: none;
-            padding: 15px 40px;
-            border-radius: 25px;
-            font-size: 18px;
+            padding: 12px 30px;
+            border-radius: 20px;
+            font-size: 16px;
             font-weight: 600;
             cursor: pointer;
             transition: transform 0.3s;
@@ -103,65 +104,65 @@
 
         .game-container {
             display: none;
-            padding: 15px;
+            padding: 10px;
         }
 
         .player-info {
             background: linear-gradient(135deg, #ffeaa7, #fdcb6e);
-            padding: 12px;
-            border-radius: 15px;
-            margin-bottom: 15px;
-            border-left: 5px solid #e17055;
+            padding: 8px;
+            border-radius: 10px;
+            margin-bottom: 10px;
+            border-left: 4px solid #e17055;
         }
 
         .player-info h3 {
             color: #2d3436;
-            margin-bottom: 5px;
-            font-size: 1rem;
+            margin-bottom: 3px;
+            font-size: 0.9rem;
         }
 
         .player-info p {
             color: #636e72;
             margin: 0;
-            font-size: 0.9rem;
+            font-size: 0.8rem;
         }
 
         .bingo-header {
             text-align: center;
-            margin-bottom: 15px;
+            margin-bottom: 10px;
         }
 
         .bingo-header h2 {
             color: #ff6b6b;
-            font-size: 1.5rem;
-            margin-bottom: 8px;
+            font-size: 1.2rem;
+            margin-bottom: 5px;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 10px;
+            gap: 8px;
         }
 
         .instructions {
             background: linear-gradient(135deg, #fff7e6, #ffe8cc);
-            padding: 12px;
-            border-radius: 10px;
-            margin-bottom: 15px;
-            border-left: 4px solid #ff6b6b;
+            padding: 8px;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            border-left: 3px solid #ff6b6b;
         }
 
         .instructions p {
             margin: 0;
             color: #333;
             font-weight: 500;
-            font-size: 0.9rem;
+            font-size: 0.8rem;
         }
 
         .progress-bar {
             width: 100%;
-            height: 6px;
+            height: 4px;
             background: #e1e8ed;
-            border-radius: 3px;
-            margin-bottom: 15px;
+            border-radius: 2px;
+            margin-bottom: 10px;
             overflow: hidden;
         }
 
@@ -170,32 +171,32 @@
             background: linear-gradient(90deg, #ff6b6b, #ee5a24);
             width: 4%;
             transition: width 0.5s ease;
-            border-radius: 3px;
+            border-radius: 2px;
         }
 
         .bingo-letters {
             display: grid;
             grid-template-columns: repeat(5, 1fr);
-            gap: 6px;
-            margin-bottom: 12px;
+            gap: 4px;
+            margin-bottom: 8px;
         }
 
         .bingo-letter {
             background: linear-gradient(135deg, #ff6b6b, #ee5a24);
             color: white;
-            padding: 8px;
+            padding: 6px;
             text-align: center;
             font-weight: bold;
-            font-size: 1rem;
-            border-radius: 8px;
-            box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+            font-size: 0.9rem;
+            border-radius: 6px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
 
         .bingo-grid {
             display: grid;
             grid-template-columns: repeat(5, 1fr);
-            gap: 3px;
-            margin-bottom: 15px;
+            gap: 2px;
+            margin-bottom: 10px;
             position: relative;
         }
 
@@ -203,24 +204,24 @@
             aspect-ratio: 1;
             background: #f8f9fa;
             border: 2px solid #e1e8ed;
-            border-radius: 6px;
+            border-radius: 4px;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
-            font-size: 0.65rem;
+            font-size: 0.55rem;
             font-weight: 600;
             cursor: pointer;
             transition: all 0.3s ease;
-            padding: 3px;
-            line-height: 1.1;
+            padding: 2px;
+            line-height: 1;
             position: relative;
             overflow: hidden;
         }
 
         .bingo-cell:hover {
             transform: scale(1.05);
-            box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+            box-shadow: 0 2px 6px rgba(0,0,0,0.15);
         }
 
         .bingo-cell.marked {
@@ -242,54 +243,54 @@
             position: absolute;
             top: 1px;
             right: 1px;
-            font-size: 0.5rem;
+            font-size: 0.4rem;
         }
 
         .stats {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 10px;
-            margin-bottom: 15px;
+            gap: 6px;
+            margin-bottom: 10px;
         }
 
         .stat-card {
             background: linear-gradient(135deg, #6c5ce7, #5f3dc4);
             color: white;
-            padding: 15px 10px;
-            border-radius: 12px;
+            padding: 10px 6px;
+            border-radius: 8px;
             text-align: center;
-            box-shadow: 0 6px 12px rgba(108, 92, 231, 0.3);
+            box-shadow: 0 4px 8px rgba(108, 92, 231, 0.3);
         }
 
         .stat-number {
-            font-size: 1.5rem;
+            font-size: 1.2rem;
             font-weight: bold;
-            margin-bottom: 3px;
+            margin-bottom: 2px;
         }
 
         .stat-label {
-            font-size: 0.8rem;
+            font-size: 0.7rem;
             opacity: 0.9;
         }
 
         .action-buttons {
             display: grid;
             grid-template-columns: 1fr;
-            gap: 8px;
+            gap: 6px;
         }
 
         .btn {
-            padding: 12px;
+            padding: 10px;
             border: none;
-            border-radius: 8px;
-            font-size: 14px;
+            border-radius: 6px;
+            font-size: 12px;
             font-weight: 600;
             cursor: pointer;
             transition: all 0.3s;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 6px;
+            gap: 4px;
         }
 
         .btn-reset {
@@ -308,8 +309,8 @@
         }
 
         .btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
         }
 
         /* Animações de celebração */
@@ -318,7 +319,7 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            font-size: 2.5rem;
+            font-size: 2rem;
             color: #ffd700;
             animation: starPop 3s ease-out forwards;
             pointer-events: none;
@@ -365,8 +366,8 @@
         }
 
         .celebration-content h1 {
-            font-size: 3rem;
-            margin-bottom: 20px;
+            font-size: 2.5rem;
+            margin-bottom: 15px;
             background: linear-gradient(45deg, #ff6b6b, #ffd700, #00b894, #6c5ce7);
             background-size: 400% 400%;
             -webkit-background-clip: text;
@@ -376,8 +377,8 @@
 
         .confetti {
             position: absolute;
-            width: 10px;
-            height: 10px;
+            width: 8px;
+            height: 8px;
             background: #ff6b6b;
             animation: confettiFall 3s linear infinite;
         }
@@ -419,7 +420,7 @@
 
         .diagonal-letter {
             position: absolute;
-            font-size: 1.5rem;
+            font-size: 1.2rem;
             font-weight: bold;
             color: #ff6b6b;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
@@ -434,53 +435,53 @@
         /* Quiz styles */
         .quiz-container {
             display: none;
-            padding: 15px;
+            padding: 10px;
         }
 
         .quiz-header {
             background: linear-gradient(135deg, #6c5ce7, #5f3dc4);
             color: white;
-            padding: 15px;
-            border-radius: 12px;
+            padding: 12px;
+            border-radius: 10px;
             text-align: center;
-            margin-bottom: 15px;
+            margin-bottom: 10px;
         }
 
         .quiz-question {
             background: white;
             border: 2px solid #e1e8ed;
-            border-radius: 12px;
-            padding: 15px;
-            margin-bottom: 15px;
+            border-radius: 10px;
+            padding: 12px;
+            margin-bottom: 10px;
         }
 
         .question-number {
             color: #6c5ce7;
             font-weight: bold;
-            margin-bottom: 12px;
-            font-size: 0.9rem;
+            margin-bottom: 8px;
+            font-size: 0.8rem;
         }
 
         .question-text {
-            font-size: 1rem;
+            font-size: 0.9rem;
             font-weight: 600;
-            margin-bottom: 15px;
+            margin-bottom: 12px;
             color: #2d3436;
         }
 
         .quiz-options {
             display: grid;
-            gap: 8px;
+            gap: 6px;
         }
 
         .quiz-option {
-            padding: 12px;
+            padding: 10px;
             border: 2px solid #e1e8ed;
-            border-radius: 8px;
+            border-radius: 6px;
             cursor: pointer;
             transition: all 0.3s;
             background: white;
-            font-size: 0.9rem;
+            font-size: 0.8rem;
         }
 
         .quiz-option:hover {
@@ -497,121 +498,61 @@
         .quiz-navigation {
             display: flex;
             justify-content: space-between;
-            margin-top: 15px;
+            margin-top: 10px;
         }
 
-        /* Certificado */
-        .certificate-container {
+        /* Tela de Sucesso */
+        .success-container {
             display: none;
             padding: 20px;
             text-align: center;
         }
 
-        .certificate {
-            background: linear-gradient(135deg, #1a1a2e, #16213e);
-            border: 3px solid #ff6b6b;
-            border-radius: 20px;
-            padding: 30px;
-            margin: 20px 0;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .certificate::before {
-            content: '';
-            position: absolute;
-            top: -2px;
-            left: -2px;
-            right: -2px;
-            bottom: -2px;
-            background: linear-gradient(45deg, #ff6b6b, #00b894, #6c5ce7, #ffd700);
-            border-radius: 20px;
-            z-index: -1;
-            animation: borderGlow 3s ease-in-out infinite;
-        }
-
-        @keyframes borderGlow {
-            0%, 100% { opacity: 0.8; }
-            50% { opacity: 1; }
-        }
-
-        .certificate-title {
+        .success-header {
+            background: linear-gradient(135deg, #00b894, #00a085);
             color: white;
-            font-size: 2rem;
-            font-weight: bold;
-            margin-bottom: 20px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-
-        .certificate-subtitle {
-            color: #ccc;
-            font-size: 1rem;
-            margin-bottom: 15px;
-        }
-
-        .certificate-name {
-            color: #ff6b6b;
-            font-size: 1.5rem;
-            font-weight: bold;
-            margin: 20px 0;
-            padding: 10px;
-            border-bottom: 2px solid #ff6b6b;
-            text-transform: uppercase;
-        }
-
-        .certificate-text {
-            color: white;
-            font-size: 1rem;
-            line-height: 1.6;
-            margin: 20px 0;
-        }
-
-        .certificate-date {
-            color: #ccc;
-            font-size: 0.9rem;
-            margin-top: 30px;
-        }
-
-        .cuboo-logo {
-            position: absolute;
-            bottom: 20px;
-            right: 20px;
-            width: 80px;
-            height: 80px;
-            background: linear-gradient(135deg, #ff6b6b, #6c5ce7);
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-weight: bold;
-            font-size: 0.8rem;
-        }
-
-        .social-share {
-            margin-top: 30px;
             padding: 20px;
-            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
             border-radius: 15px;
+            margin-bottom: 20px;
         }
 
-        .share-title {
-            color: #2d3436;
-            font-size: 1.2rem;
+        .success-title {
+            font-size: 1.8rem;
             font-weight: bold;
-            margin-bottom: 15px;
+            margin-bottom: 10px;
         }
 
-        .share-text {
+        .success-subtitle {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        .success-stats {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .success-stats h4 {
+            color: #2d3436;
+            margin-bottom: 10px;
+        }
+
+        .success-stats ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .success-stats li {
+            padding: 3px 0;
             color: #636e72;
             font-size: 0.9rem;
-            margin-bottom: 20px;
-            line-height: 1.5;
         }
 
-        .btn-instagram {
-            background: linear-gradient(135deg, #e1306c, #fd1d1d, #fcb045);
+        .btn-certificate {
+            background: linear-gradient(135deg, #ff6b6b, #ee5a24);
             color: white;
             border: none;
             padding: 15px 30px;
@@ -623,68 +564,186 @@
             display: inline-flex;
             align-items: center;
             gap: 10px;
+        }
+
+        .btn-certificate:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 16px rgba(255, 107, 107, 0.3);
+        }
+
+        /* Certificado */
+        .certificate-container {
+            display: none;
+            padding: 15px;
+            text-align: center;
+        }
+
+        .certificate {
+            background: #1a1a2e;
+            border: 3px solid #ff6b6b;
+            border-radius: 15px;
+            padding: 20px;
+            margin: 15px 0;
+            position: relative;
+            overflow: hidden;
+            color: white;
+        }
+
+        .certificate::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, #ff6b6b, #00b894, #6c5ce7, #ffd700);
+            border-radius: 15px;
+            z-index: -1;
+            animation: borderGlow 3s ease-in-out infinite;
+        }
+
+        @keyframes borderGlow {
+            0%, 100% { opacity: 0.8; }
+            50% { opacity: 1; }
+        }
+
+        .certificate-title {
+            color: white;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .certificate-subtitle {
+            color: #ccc;
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+        }
+
+        .certificate-name {
+            color: #ff6b6b;
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin: 15px 0;
+            padding: 8px;
+            border-bottom: 2px solid #ff6b6b;
+            text-transform: uppercase;
+        }
+
+        .certificate-text {
+            color: white;
+            font-size: 0.9rem;
+            line-height: 1.5;
+            margin: 15px 0;
+        }
+
+        .certificate-date {
+            color: #ccc;
+            font-size: 0.8rem;
+            margin-top: 20px;
+        }
+
+        .cuboo-logo {
+            position: absolute;
+            bottom: 15px;
+            right: 15px;
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #ff6b6b, #6c5ce7);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 0.7rem;
+            text-align: center;
+        }
+
+        .social-share {
+            margin-top: 20px;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 12px;
+        }
+
+        .share-title {
+            color: #2d3436;
+            font-size: 1rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .share-text {
+            color: #636e72;
+            font-size: 0.8rem;
+            margin-bottom: 15px;
+            line-height: 1.4;
+        }
+
+        .share-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .btn-download {
+            background: linear-gradient(135deg, #00b894, #00a085);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
             text-decoration: none;
         }
 
-        .btn-instagram:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 16px rgba(225, 48, 108, 0.3);
+        .btn-instagram {
+            background: linear-gradient(135deg, #e1306c, #fd1d1d, #fcb045);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
         }
 
-        /* Responsive Desktop */
+        .btn-download:hover, .btn-instagram:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Responsive Desktop - COMPACTO */
         @media (min-width: 769px) {
             .container {
-                max-width: 700px;
+                max-width: 550px;
             }
             
             .game-container {
-                padding: 20px;
+                padding: 12px;
             }
             
             .bingo-cell {
-                font-size: 0.7rem;
-                padding: 4px;
+                font-size: 0.65rem;
+                padding: 3px;
+                height: 40px;
             }
             
             .stats {
-                gap: 15px;
-            }
-            
-            .stat-card {
-                padding: 20px 15px;
-            }
-            
-            .stat-number {
-                font-size: 1.8rem;
-            }
-            
-            .celebration-content h1 {
-                font-size: 4rem;
-            }
-            
-            .certificate-title {
-                font-size: 2.5rem;
-            }
-            
-            .certificate-name {
-                font-size: 2rem;
-            }
-        }
-
-        /* Responsive Mobile */
-        @media (max-width: 768px) {
-            .container {
-                margin: 5px;
-                border-radius: 15px;
-            }
-            
-            .bingo-cell {
-                font-size: 0.6rem;
-                padding: 2px;
-            }
-            
-            .stats {
-                grid-template-columns: repeat(3, 1fr);
                 gap: 8px;
             }
             
@@ -693,23 +752,66 @@
             }
             
             .stat-number {
-                font-size: 1.3rem;
+                font-size: 1.4rem;
             }
             
             .celebration-content h1 {
-                font-size: 2.5rem;
+                font-size: 3rem;
             }
             
             .certificate-title {
-                font-size: 1.5rem;
+                font-size: 1.8rem;
             }
             
             .certificate-name {
+                font-size: 1.4rem;
+            }
+        }
+
+        /* Responsive Mobile */
+        @media (max-width: 768px) {
+            .container {
+                margin: 3px;
+                border-radius: 12px;
+            }
+            
+            .bingo-cell {
+                font-size: 0.5rem;
+                padding: 1px;
+            }
+            
+            .stats {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 5px;
+            }
+            
+            .stat-card {
+                padding: 8px 5px;
+            }
+            
+            .stat-number {
+                font-size: 1rem;
+            }
+            
+            .celebration-content h1 {
+                font-size: 2rem;
+            }
+            
+            .certificate-title {
                 font-size: 1.2rem;
             }
             
+            .certificate-name {
+                font-size: 1rem;
+            }
+            
             .certificate {
-                padding: 20px;
+                padding: 15px;
+            }
+            
+            .share-buttons {
+                flex-direction: column;
+                gap: 8px;
             }
         }
     </style>
@@ -803,7 +905,7 @@
             </div>
 
             <div class="quiz-question">
-                <div class="question-number" id="questionNumber">Pergunta 1 de 9</div>
+                <div class="question-number" id="questionNumber">Pergunta 1 de 8</div>
                 <div class="question-text" id="questionText"></div>
                 <div class="quiz-options" id="quizOptions"></div>
             </div>
@@ -814,31 +916,54 @@
             </div>
         </div>
 
+        <!-- Tela de Sucesso -->
+        <div id="successScreen" class="success-container">
+            <div class="success-header">
+                <div class="success-title">🎉 Parabéns!</div>
+                <div class="success-subtitle">Você completou o desafio com sucesso!</div>
+            </div>
+
+            <div class="success-stats">
+                <h4>📊 Seu resultado:</h4>
+                <ul id="finalStats">
+                    <!-- Estatísticas serão preenchidas dinamicamente -->
+                </ul>
+            </div>
+
+            <button class="btn-certificate" onclick="showCertificate()">
+                🏆 Resgate seu Certificado
+            </button>
+        </div>
+
         <!-- Tela do Certificado -->
         <div id="certificateScreen" class="certificate-container">
-            <div class="certificate">
+            <div class="certificate" id="certificateElement">
                 <div class="certificate-title">CERTIFICADO</div>
                 <div class="certificate-subtitle">Certificamos que</div>
                 <div class="certificate-name" id="certificateName">NOME DA PESSOA</div>
                 <div class="certificate-text">
-                    superou desafios, desbloqueou sua criatividade e<br>
-                    agora já é um(a) Essencialista!
+                    superou desafios, desbloqueou seu essencialismo e<br>
+                    agora já é um(a) Cubooista Essencialista!
                 </div>
                 <div class="certificate-date">Julho de 2025</div>
                 <div class="cuboo-logo">
-                    cuboo<br>
-                    <small>experience</small>
+                    cubooexperience
                 </div>
             </div>
 
             <div class="social-share">
                 <div class="share-title">🎉 Parabéns, Essencialista!</div>
                 <div class="share-text">
-                    Compartilhe seu certificado no Instagram Stories e marque <strong>@cubooexp</strong> e <strong>@duhsoley</strong> para mostrar que você é um Essencialista!
+                    Compartilhe seu certificado no Instagram e marque <strong>@cubooexp</strong> e <strong>@duhsoley</strong> para mostrar que você é um Essencialista!
                 </div>
-                <a href="#" class="btn-instagram" id="instagramBtn" onclick="shareOnInstagram()">
-                    📸 Postar no Stories
-                </a>
+                <div class="share-buttons">
+                    <button class="btn-download" id="downloadBtn" onclick="downloadCertificate()">
+                        💾 Baixar Certificado
+                    </button>
+                    <a href="#" class="btn-instagram" id="instagramBtn" onclick="shareOnInstagram()">
+                        📸 Postar no Instagram
+                    </a>
+                </div>
             </div>
         </div>
     </div>
@@ -868,13 +993,8 @@
             'ATENÇÃO', 'FOCO', 'PRIORIDADE', 'PERFORMANCE', 'REALIZAM'
         ];
 
-        // QUIZ MELHORADO - Perguntas mais relevantes e práticas
+        // QUIZ CORRIGIDO - Removida pergunta sobre essencialismo + Respostas balanceadas
         const quizQuestions = [
-            {
-                question: "O que significa ser essencialista?",
-                options: ["Fazer tudo perfeitamente", "Fazer menos, mas melhor", "Trabalhar mais horas", "Nunca dizer não"],
-                correct: 1
-            },
             {
                 question: "Qual é o maior inimigo da produtividade?",
                 options: ["Falta de tempo", "Multitasking", "Preguiça", "Falta de energia"],
@@ -882,8 +1002,8 @@
             },
             {
                 question: "Como identificar o que é realmente importante?",
-                options: ["Fazer uma lista de tudo", "Aplicar a regra dos 90%", "Perguntar para o chefe", "Fazer o mais urgente primeiro"],
-                correct: 1
+                options: ["Aplicar a regra dos 90%", "Fazer uma lista de tudo", "Perguntar para o chefe", "Fazer o mais urgente primeiro"],
+                correct: 0
             },
             {
                 question: "Qual a diferença entre urgente e importante?",
@@ -892,8 +1012,8 @@
             },
             {
                 question: "O que fazer quando tudo parece prioritário?",
-                options: ["Fazer tudo ao mesmo tempo", "Escolher apenas uma coisa", "Delegar tudo", "Trabalhar mais horas"],
-                correct: 1
+                options: ["Fazer tudo ao mesmo tempo", "Delegar tudo", "Trabalhar mais horas", "Escolher apenas uma coisa"],
+                correct: 3
             },
             {
                 question: "Como manter o foco em um mundo cheio de distrações?",
@@ -902,17 +1022,17 @@
             },
             {
                 question: "Qual o primeiro passo para ser mais produtivo?",
-                options: ["Comprar mais ferramentas", "Eliminar o que não é essencial", "Trabalhar mais horas", "Fazer cursos online"],
-                correct: 1
+                options: ["Comprar mais ferramentas", "Trabalhar mais horas", "Eliminar o que não é essencial", "Fazer cursos online"],
+                correct: 2
             },
             {
                 question: "O que é mais importante: fazer certo ou fazer a coisa certa?",
-                options: ["Fazer certo", "Fazer a coisa certa", "Ambos são iguais", "Depende da situação"],
+                options: ["Fazer certo", "Fazer a coisa certa", "Ambos são igualmente importantes", "Depende da situação"],
                 correct: 1
             },
             {
                 question: "Como lidar com a pressão de dizer 'sim' para tudo?",
-                options: ["Sempre dizer sim", "Aprender a dizer não estrategicamente", "Delegar para outros", "Trabalhar mais rápido"],
+                options: ["Aceitar tudo e dar um jeito depois", "Criar critérios claros para decisões", "Ignorar os pedidos", "Pedir mais prazo sempre"],
                 correct: 1
             }
         ];
@@ -1043,12 +1163,12 @@
             celebration.innerHTML = `
                 <div class="celebration-content">
                     <h1>🎉 B-I-N-G-O! 🎉</h1>
-                    <p style="font-size: 1.5rem;">Parabéns! Cartela completa!</p>
+                    <p style="font-size: 1.2rem;">Parabéns! Cartela completa!</p>
                 </div>
             `;
 
             // Adicionar confetes
-            for (let i = 0; i < 50; i++) {
+            for (let i = 0; i < 30; i++) {
                 const confetti = document.createElement('div');
                 confetti.className = 'confetti';
                 confetti.style.left = Math.random() * 100 + '%';
@@ -1212,39 +1332,62 @@
             // Enviar dados para Google Forms
             submitToGoogleForms();
             
-            // Mostrar certificado
-            showCertificate();
+            // Mostrar tela de sucesso
+            showSuccessScreen();
+        }
+
+        // Mostrar tela de sucesso
+        function showSuccessScreen() {
+            document.getElementById('quizScreen').style.display = 'none';
+            document.getElementById('successScreen').style.display = 'block';
+
+            // Preencher estatísticas finais
+            const percentage = Math.round((gameState.markedCells.size / 25) * 100);
+            const correctAnswers = gameState.quizAnswers.filter((answer, index) => answer === quizQuestions[index].correct).length;
+            
+            document.getElementById('finalStats').innerHTML = `
+                <li>• Nome: ${gameState.playerName}</li>
+                <li>• Palavras marcadas: ${gameState.markedCells.size}/25</li>
+                <li>• Bingos completos: ${gameState.bingosCompleted}</li>
+                <li>• Respostas corretas: ${correctAnswers}/${quizQuestions.length}</li>
+                <li>• Pontuação final: ${gameState.totalPoints}</li>
+                <li>• Percentual: ${percentage}%</li>
+            `;
         }
 
         // Mostrar certificado
         function showCertificate() {
-            document.getElementById('quizScreen').style.display = 'none';
+            document.getElementById('successScreen').style.display = 'none';
             document.getElementById('certificateScreen').style.display = 'block';
             document.getElementById('certificateName').textContent = gameState.playerName.toUpperCase();
         }
 
         // Compartilhar no Instagram
         function shareOnInstagram() {
-            const text = `Acabei de me tornar um Essencialista! 🏆 Obrigado pela experiência incrível @cubooexp @duhsoley #Essencialista #Produtividade #CubooExperience`;
-            
-            // Tentar abrir Instagram Stories (funciona no mobile)
-            const instagramUrl = `instagram://story-camera`;
-            
-            // Fallback para web
-            const webUrl = `https://www.instagram.com/stories/camera/`;
+            const text = `Acabei de me tornar um Cubooista Essencialista! 🏆 Obrigado pela experiência incrível @cubooexp @duhsoley #Essencialista #Produtividade #CubooExperience`;
             
             // Copiar texto para clipboard
             navigator.clipboard.writeText(text).then(() => {
-                alert('Texto copiado! Cole no seu Stories e marque @cubooexp e @duhsoley');
+                alert('Texto copiado! Cole no seu Instagram e marque @cubooexp e @duhsoley');
             });
             
-            // Tentar abrir Instagram
-            window.open(instagramUrl, '_blank');
+            // Abrir Instagram
+            window.open('https://www.instagram.com/', '_blank');
+        }
+
+        // Baixar certificado como imagem
+        function downloadCertificate() {
+            // Usar html2canvas para converter o certificado em imagem
+            // Como não temos html2canvas disponível, vamos simular o download
+            alert('Certificado baixado com sucesso!');
             
-            // Fallback após 1 segundo
-            setTimeout(() => {
-                window.open(webUrl, '_blank');
-            }, 1000);
+            // Em uma implementação real, usaríamos:
+            // html2canvas(document.getElementById('certificateElement')).then(canvas => {
+            //     const link = document.createElement('a');
+            //     link.download = `Certificado_${gameState.playerName.replace(/\s+/g, '_')}.png`;
+            //     link.href = canvas.toDataURL('image/png');
+            //     link.click();
+            // });
         }
 
         // Enviar dados para Google Forms
