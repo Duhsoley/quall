@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>🎯 Bingo Essencialista - Qualicorp</title>
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
     <style>
         * {
             margin: 0;
@@ -727,6 +728,81 @@
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
         }
 
+        /* Seção de Compromisso Essencialista */
+        .commitment-container {
+            display: none;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .commitment-header {
+            background: linear-gradient(135deg, #6c5ce7, #5f3dc4);
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+        }
+
+        .commitment-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .commitment-subtitle {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        .commitment-content {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .commitment-item {
+            margin-bottom: 15px;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .commitment-item::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #00b894;
+            font-weight: bold;
+        }
+
+        .commitment-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .btn-agree {
+            background: linear-gradient(135deg, #00b894, #00a085);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 25px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.3s;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .btn-agree:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 16px rgba(0, 184, 148, 0.3);
+        }
+
         /* Responsive Desktop - COMPACTO */
         @media (min-width: 769px) {
             .container {
@@ -930,9 +1006,41 @@
                 </ul>
             </div>
 
-            <button class="btn-certificate" onclick="showCertificate()">
-                🏆 Resgate seu Certificado
+            <button class="btn-certificate" onclick="showCommitment()">
+                🏆 Continuar para Compromisso Essencialista
             </button>
+        </div>
+
+        <!-- Tela de Compromisso Essencialista -->
+        <div id="commitmentScreen" class="commitment-container">
+            <div class="commitment-header">
+                <div class="commitment-title">🤝 Compromisso Essencialista</div>
+                <div class="commitment-subtitle">Assuma o compromisso de aplicar o essencialismo no seu dia a dia</div>
+            </div>
+
+            <div class="commitment-content">
+                <div class="commitment-item">
+                    <strong>Eu me comprometo a focar no que é realmente essencial</strong>, eliminando distrações e atividades que não agregam valor.
+                </div>
+                <div class="commitment-item">
+                    <strong>Eu me comprometo a dizer "não" com mais frequência</strong> para abrir espaço para os "sim" que realmente importam.
+                </div>
+                <div class="commitment-item">
+                    <strong>Eu me comprometo a criar sistemas</strong> que me ajudem a manter o foco e a produtividade.
+                </div>
+                <div class="commitment-item">
+                    <strong>Eu me comprometo a eliminar o multitasking</strong> e trabalhar em blocos de tempo focado.
+                </div>
+                <div class="commitment-item">
+                    <strong>Eu me comprometo a revisar regularmente minhas prioridades</strong> e ajustar meu foco conforme necessário.
+                </div>
+            </div>
+
+            <div class="commitment-actions">
+                <button class="btn-agree" onclick="showCertificate()">
+                    ✓ Eu aceito o Compromisso Essencialista
+                </button>
+            </div>
         </div>
 
         <!-- Tela do Certificado -->
@@ -1355,9 +1463,15 @@
             `;
         }
 
+        // Mostrar tela de compromisso essencialista
+        function showCommitment() {
+            document.getElementById('successScreen').style.display = 'none';
+            document.getElementById('commitmentScreen').style.display = 'block';
+        }
+
         // Mostrar certificado
         function showCertificate() {
-            document.getElementById('successScreen').style.display = 'none';
+            document.getElementById('commitmentScreen').style.display = 'none';
             document.getElementById('certificateScreen').style.display = 'block';
             document.getElementById('certificateName').textContent = gameState.playerName.toUpperCase();
         }
@@ -1375,54 +1489,48 @@
             window.open('https://www.instagram.com/', '_blank');
         }
 
-        // Baixar certificado como imagem
+        // Baixar certificado como imagem - CORRIGIDO
         function downloadCertificate() {
             // Usar html2canvas para converter o certificado em imagem
-            // Como não temos html2canvas disponível, vamos simular o download
-            alert('Certificado baixado com sucesso!');
-            
-            // Em uma implementação real, usaríamos:
-            // html2canvas(document.getElementById('certificateElement')).then(canvas => {
-            //     const link = document.createElement('a');
-            //     link.download = `Certificado_${gameState.playerName.replace(/\s+/g, '_')}.png`;
-            //     link.href = canvas.toDataURL('image/png');
-            //     link.click();
-            // });
+            html2canvas(document.getElementById('certificateElement')).then(canvas => {
+                // Criar um elemento de link temporário
+                const link = document.createElement('a');
+                
+                // Configurar o link para download
+                link.download = `Certificado_Essencialista_${gameState.playerName.replace(/\s+/g, '_')}.png`;
+                link.href = canvas.toDataURL('image/png');
+                
+                // Adicionar o link ao documento
+                document.body.appendChild(link);
+                
+                // Simular um clique no link para iniciar o download
+                link.click();
+                
+                // Remover o link do documento
+                document.body.removeChild(link);
+            });
         }
 
         // Enviar dados para Google Forms
         function submitToGoogleForms() {
             const formData = new FormData();
             const percentage = Math.round((gameState.markedCells.size / 25) * 100);
+            const timestamp = new Date().toISOString();
             
             formData.append(FORM_FIELDS.name, gameState.playerName);
             formData.append(FORM_FIELDS.department, gameState.department);
             formData.append(FORM_FIELDS.whatsapp, gameState.whatsapp);
-            formData.append(FORM_FIELDS.wordsMarked, Array.from(gameState.markedCells).map(i => bingoWords[i]).join(', '));
+            formData.append(FORM_FIELDS.wordsMarked, gameState.markedCells.size);
             formData.append(FORM_FIELDS.bingosCompleted, gameState.bingosCompleted);
             formData.append(FORM_FIELDS.totalPoints, gameState.totalPoints);
-            formData.append(FORM_FIELDS.percentage, percentage + '%');
-            formData.append(FORM_FIELDS.timestamp, new Date().toLocaleString('pt-BR'));
-
-            // Log para debug
-            console.log('Enviando dados:', {
-                name: gameState.playerName,
-                department: gameState.department,
-                whatsapp: gameState.whatsapp,
-                wordsMarked: Array.from(gameState.markedCells).map(i => bingoWords[i]).join(', '),
-                bingosCompleted: gameState.bingosCompleted,
-                totalPoints: gameState.totalPoints,
-                percentage: percentage + '%'
-            });
-
+            formData.append(FORM_FIELDS.percentage, percentage);
+            formData.append(FORM_FIELDS.timestamp, timestamp);
+            
+            // Enviar dados via fetch
             fetch(GOOGLE_FORMS_URL, {
                 method: 'POST',
                 mode: 'no-cors',
                 body: formData
-            }).then(() => {
-                console.log('Dados enviados com sucesso!');
-            }).catch((error) => {
-                console.error('Erro ao enviar:', error);
             });
         }
     </script>
